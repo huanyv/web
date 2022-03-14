@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-条件与循环</title>
+</head>
+<body>
+
+    <!-- 
+        1. v-if和v-for不能在一个标签内联用
+     -->
+    <script src="./js/vue/vue.js"></script>
+    <div id="app">
+        <h2 v-if="seen">显示</h2>
+    </div>
+    <div id="app2">
+        <ul>
+            <li v-for="(todo,index) in todos">
+               {{index}} - 时间：{{ todo.time }},&nbsp;&nbsp;&nbsp;事项：{{ todo.text }}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(value,name,index) in person">
+                {{ index }} - {{ name }} - {{ value }}
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                seen: true
+            }
+        });
+        // app.seen = false; //隐藏
+        var app2 = new Vue({
+            el: "#app2",
+            data: {
+                todos: [{
+                    time: "19:00",
+                    text: "学习制作原子弹"
+                },{
+                    time: "20:00",
+                    text: "炼丹"
+                },{
+                    time: "21:00",
+                    text: "渡劫"
+                },{
+                    time: "22:00",
+                    text: "飞升"
+                }],
+                person: {
+                    name: "张三",
+                    age: 18,
+                    sex: 1
+                }
+            }
+        });
+    </script>
+</body>
+</html>

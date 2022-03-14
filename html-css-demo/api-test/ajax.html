@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+</head>
+<body>
+    <script>
+        function get(url,fn,async) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET",url,async);
+            xhr.onreadystatechange = () => {
+                if(xhr.readyState === 4 && xhr.status >= 200 && xhr.status <= 300) {
+                    fn(JSON.parse(xhr.responseText));
+                }
+            }
+            xhr.send()
+        }
+        function post(url,data,fn,async) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST",url,async);
+            xhr.onreadystatechange = () => {
+                if(xhr.readyState === 4 && xhr.status >= 200 && xhr.status <= 300) {
+                    fn(JSON.parse(xhr.responseText));
+                }
+            }
+            xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+            xhr.send(data)
+        }
+
+        get("http://wthrcdn.etouch.cn/weather_mini?city=沧州",function(data) {
+            console.log(data);
+        },true)
+
+        post("http://www.nmc.cn/rest/weather","stationid=54616&_=1646997794950",function(data) {
+            console.log(data);
+        },true)
+
+    </script>
+</body>
+</html>

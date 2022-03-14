@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="counter">
+        <span v-bind:title="message">
+            Counter: {{ counter }}
+        </span>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      const Counter = {
+        // 模板中的数据
+        data() {
+          return {
+            counter: 0,
+            message:"Hello Vue!"
+          };
+        },
+        // 在最后执行
+        mounted() {
+          setInterval(() => {
+            this.counter++;
+          }, 1000);
+        },
+        // 应用的方法，多个
+        methods: {
+
+        },
+        // 应用的组件，多个
+        component: {
+
+        }
+      };
+
+      Vue.createApp(Counter).mount("#counter"); // 创建一个Vue应用，挂载到html元素上
+    </script>
+  </body>
+</html>

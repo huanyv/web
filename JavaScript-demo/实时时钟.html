@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实时时钟</title>
+    <style type="text/css">
+
+    span {
+        width: 200;
+        height: 100;
+    }
+
+    </style>
+</head>
+<body>
+    
+    <script type="text/javascript">
+    
+        function realTime() {
+            var time = new Date();
+            console.log(time.toLocaleTimeString());
+            document.getElementById("realtime").innerText = time.toLocaleTimeString();
+        }
+
+        window.onload = function() {
+            var v = window.setInterval("realTime()",1000);
+
+            document.getElementById("stopBtn").onclick = function() {
+               window.clearInterval(v);
+            }
+
+        }
+
+
+    </script>
+
+    <sapn id="realtime"></sapn>
+    <input type="button" id="stopBtn" value="按钮">
+</body>
+</html>

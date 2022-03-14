@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        var url = "http://www.nmc.cn/rest/weather?stationid=54702&_=1645774604383";
+        $.ajax({
+            "url": url,
+            "dataType": "json",
+            "type": "post",
+            success: function(data) {
+                console.log(data);
+                var dom = document.getElementById("message");
+                dom.innerText = data.data.real.station.province 
+                    + data.data.real.station.city 
+                    + "今日天气："+ data.data.real.weather.info
+            }
+        })
+    </script>
+    <div id="message"></div>
+</body>
+</html>

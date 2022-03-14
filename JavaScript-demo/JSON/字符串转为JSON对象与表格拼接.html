@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串转为JSON对象与表格拼接</title>
+</head>
+<body>
+    
+<script type="text/javascript">
+
+    var jsonObj = "{\"total\" : 3,\"data\" : [{\"name\":\"zhangsan\",\"age\":20},{\"name\":\"lisi\",\"age\":21},{\"name\":\"wangwu\",\"age\":22}]}";
+
+    window.eval("var students = " + jsonObj);
+        
+    window.onload = function() {
+        document.getElementById("btn").onclick = function() {
+            var html1 = "";
+            for(var i = 0; i < students.total; i++) {
+                html1 += "<tr>";
+                html1 += "<td>";
+                html1 += i;
+                html1 += "</td>";
+                html1 += "<td>";
+                html1 += students.data[i].name;
+                html1 += "</td>";
+                html1 += "<td>";
+                html1 += students.data[i].age;
+                html1 += "</td>";
+                html1 += "</tr>";
+            }
+            document.getElementById("stuTbody").innerHTML = html1;
+        }
+    }
+
+</script>
+
+<table border="1">
+    <tr>
+        <th>学号</th>
+        <th width="200px">姓名</th>
+        <th>年龄</th>
+    </tr>
+    <tbody id="stuTbody">
+
+    </tbody>
+</table>
+
+<input type="button" value="查看学生信息" id="btn">
+</body>
+</html>

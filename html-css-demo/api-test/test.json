@@ -1,0 +1,768 @@
+{
+    "msg": "success",
+    "code": 0,
+    "data": {
+        "real": {
+            "station": {
+                "code": "54702",
+                "province": "河北省",
+                "city": "衡水",
+                "url": "/publish/forecast/AHE/hengshui.html"
+            },
+            "publish_time": "2022-02-25 15:35",
+            "weather": {
+                "temperature": 16.8,
+                "temperatureDiff": 4.8,
+                "airpressure": 9999.0,
+                "humidity": 25.0,
+                "rain": 0.0,
+                "rcomfort": 54,
+                "icomfort": -1,
+                "info": "晴",
+                "img": "0",
+                "feelst": 13.5
+            },
+            "wind": {
+                "direct": "西南风",
+                "power": "微风",
+                "speed": ""
+            },
+            "warn": {
+                "alert": "9999",
+                "pic": "9999",
+                "province": "9999",
+                "city": "9999",
+                "url": "9999",
+                "issuecontent": "9999",
+                "fmeans": "9999",
+                "signaltype": "9999",
+                "signallevel": "9999",
+                "pic2": "9999"
+            }
+        },
+        "predict": {
+            "station": {
+                "code": "54702",
+                "province": "河北省",
+                "city": "衡水",
+                "url": "/publish/forecast/AHE/hengshui.html"
+            },
+            "publish_time": "2022-02-25 12:00",
+            "detail": [
+                {
+                    "date": "2022-02-25",
+                    "pt": "2022-02-25 12:00",
+                    "day": {
+                        "weather": {
+                            "info": "晴",
+                            "img": "0",
+                            "temperature": "15"
+                        },
+                        "wind": {
+                            "direct": "西南风",
+                            "power": "3~4级"
+                        }
+                    },
+                    "night": {
+                        "weather": {
+                            "info": "多云",
+                            "img": "1",
+                            "temperature": "3"
+                        },
+                        "wind": {
+                            "direct": "西南风",
+                            "power": "3~4级"
+                        }
+                    }
+                },
+                {
+                    "date": "2022-02-26",
+                    "pt": "2022-02-25 12:00",
+                    "day": {
+                        "weather": {
+                            "info": "晴",
+                            "img": "0",
+                            "temperature": "12"
+                        },
+                        "wind": {
+                            "direct": "北风",
+                            "power": "3~4级"
+                        }
+                    },
+                    "night": {
+                        "weather": {
+                            "info": "晴",
+                            "img": "0",
+                            "temperature": "3"
+                        },
+                        "wind": {
+                            "direct": "西南风",
+                            "power": "微风"
+                        }
+                    }
+                },
+                {
+                    "date": "2022-02-27",
+                    "pt": "2022-02-25 12:00",
+                    "day": {
+                        "weather": {
+                            "info": "多云",
+                            "img": "1",
+                            "temperature": "15"
+                        },
+                        "wind": {
+                            "direct": "南风",
+                            "power": "3~4级"
+                        }
+                    },
+                    "night": {
+                        "weather": {
+                            "info": "多云",
+                            "img": "1",
+                            "temperature": "3"
+                        },
+                        "wind": {
+                            "direct": "南风",
+                            "power": "3~4级"
+                        }
+                    }
+                },
+                {
+                    "date": "2022-02-28",
+                    "pt": "2022-02-25 12:00",
+                    "day": {
+                        "weather": {
+                            "info": "多云",
+                            "img": "1",
+                            "temperature": "17"
+                        },
+                        "wind": {
+                            "direct": "北风",
+                            "power": "3~4级"
+                        }
+                    },
+                    "night": {
+                        "weather": {
+                            "info": "晴",
+                            "img": "0",
+                            "temperature": "0"
+                        },
+                        "wind": {
+                            "direct": "北风",
+                            "power": "4~5级"
+                        }
+                    }
+                },
+                {
+                    "date": "2022-03-01",
+                    "pt": "2022-02-25 12:00",
+                    "day": {
+                        "weather": {
+                            "info": "晴",
+                            "img": "0",
+                            "temperature": "10"
+                        },
+                        "wind": {
+                            "direct": "南风",
+                            "power": "微风"
+                        }
+                    },
+                    "night": {
+                        "weather": {
+                            "info": "晴",
+                            "img": "0",
+                            "temperature": "2"
+                        },
+                        "wind": {
+                            "direct": "西南风",
+                            "power": "微风"
+                        }
+                    }
+                },
+                {
+                    "date": "2022-03-02",
+                    "pt": "2022-02-25 12:00",
+                    "day": {
+                        "weather": {
+                            "info": "晴",
+                            "img": "0",
+                            "temperature": "16"
+                        },
+                        "wind": {
+                            "direct": "西北风",
+                            "power": "3~4级"
+                        }
+                    },
+                    "night": {
+                        "weather": {
+                            "info": "晴",
+                            "img": "0",
+                            "temperature": "0"
+                        },
+                        "wind": {
+                            "direct": "东风",
+                            "power": "微风"
+                        }
+                    }
+                },
+                {
+                    "date": "2022-03-03",
+                    "pt": "2022-02-25 12:00",
+                    "day": {
+                        "weather": {
+                            "info": "多云",
+                            "img": "1",
+                            "temperature": "18"
+                        },
+                        "wind": {
+                            "direct": "南风",
+                            "power": "3~4级"
+                        }
+                    },
+                    "night": {
+                        "weather": {
+                            "info": "多云",
+                            "img": "1",
+                            "temperature": "3"
+                        },
+                        "wind": {
+                            "direct": "西风",
+                            "power": "微风"
+                        }
+                    }
+                }
+            ]
+        },
+        "air": {
+            "forecasttime": "",
+            "aqi": "",
+            "aq": 9999,
+            "text": "-",
+            "aqiCode": ""
+        },
+        "tempchart": [
+            {
+                "time": "2022/02/18",
+                "max_temp": 2.8,
+                "min_temp": -4.8,
+                "day_img": "9999",
+                "day_text": "9999",
+                "night_img": "9999",
+                "night_text": "9999"
+            },
+            {
+                "time": "2022/02/19",
+                "max_temp": 3.9,
+                "min_temp": -5.9,
+                "day_img": "9999",
+                "day_text": "9999",
+                "night_img": "9999",
+                "night_text": "9999"
+            },
+            {
+                "time": "2022/02/20",
+                "max_temp": 7.2,
+                "min_temp": -7.0,
+                "day_img": "9999",
+                "day_text": "9999",
+                "night_img": "9999",
+                "night_text": "9999"
+            },
+            {
+                "time": "2022/02/21",
+                "max_temp": 6.1,
+                "min_temp": -3.4,
+                "day_img": "9999",
+                "day_text": "9999",
+                "night_img": "9999",
+                "night_text": "9999"
+            },
+            {
+                "time": "2022/02/22",
+                "max_temp": 5.4,
+                "min_temp": -3.5,
+                "day_img": "9999",
+                "day_text": "9999",
+                "night_img": "9999",
+                "night_text": "9999"
+            },
+            {
+                "time": "2022/02/23",
+                "max_temp": 7.7,
+                "min_temp": -5.5,
+                "day_img": "9999",
+                "day_text": "9999",
+                "night_img": "9999",
+                "night_text": "9999"
+            },
+            {
+                "time": "2022/02/24",
+                "max_temp": 11.8,
+                "min_temp": -3.0,
+                "day_img": "9999",
+                "day_text": "9999",
+                "night_img": "9999",
+                "night_text": "9999"
+            },
+            {
+                "time": "2022/02/25",
+                "max_temp": 15.0,
+                "min_temp": 3.0,
+                "day_img": "0",
+                "day_text": "晴",
+                "night_img": "1",
+                "night_text": "多云"
+            },
+            {
+                "time": "2022/02/26",
+                "max_temp": 12.0,
+                "min_temp": 3.0,
+                "day_img": "0",
+                "day_text": "晴",
+                "night_img": "0",
+                "night_text": "晴"
+            },
+            {
+                "time": "2022/02/27",
+                "max_temp": 15.0,
+                "min_temp": 3.0,
+                "day_img": "1",
+                "day_text": "多云",
+                "night_img": "1",
+                "night_text": "多云"
+            },
+            {
+                "time": "2022/02/28",
+                "max_temp": 17.0,
+                "min_temp": 0.0,
+                "day_img": "1",
+                "day_text": "多云",
+                "night_img": "0",
+                "night_text": "晴"
+            },
+            {
+                "time": "2022/03/01",
+                "max_temp": 10.0,
+                "min_temp": 2.0,
+                "day_img": "0",
+                "day_text": "晴",
+                "night_img": "0",
+                "night_text": "晴"
+            },
+            {
+                "time": "2022/03/02",
+                "max_temp": 16.0,
+                "min_temp": 0.0,
+                "day_img": "0",
+                "day_text": "晴",
+                "night_img": "0",
+                "night_text": "晴"
+            },
+            {
+                "time": "2022/03/03",
+                "max_temp": 18.0,
+                "min_temp": 3.0,
+                "day_img": "1",
+                "day_text": "多云",
+                "night_img": "1",
+                "night_text": "多云"
+            }
+        ],
+        "passedchart": [
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 16.4,
+                "tempDiff": "",
+                "humidity": 27.0,
+                "pressure": 1016.0,
+                "windDirection": 211.0,
+                "windSpeed": 5.0,
+                "time": "2022-02-25 15:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 15.0,
+                "tempDiff": "",
+                "humidity": 30.0,
+                "pressure": 1016.0,
+                "windDirection": 231.0,
+                "windSpeed": 5.9,
+                "time": "2022-02-25 14:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 13.5,
+                "tempDiff": "",
+                "humidity": 35.0,
+                "pressure": 1018.0,
+                "windDirection": 236.0,
+                "windSpeed": 4.4,
+                "time": "2022-02-25 13:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 12.1,
+                "tempDiff": "",
+                "humidity": 38.0,
+                "pressure": 1019.0,
+                "windDirection": 212.0,
+                "windSpeed": 4.6,
+                "time": "2022-02-25 12:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 9.4,
+                "tempDiff": "",
+                "humidity": 47.0,
+                "pressure": 1020.0,
+                "windDirection": 241.0,
+                "windSpeed": 3.3,
+                "time": "2022-02-25 11:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 6.7,
+                "tempDiff": "",
+                "humidity": 55.0,
+                "pressure": 1021.0,
+                "windDirection": 204.0,
+                "windSpeed": 6.1,
+                "time": "2022-02-25 10:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 4.7,
+                "tempDiff": "",
+                "humidity": 61.0,
+                "pressure": 1021.0,
+                "windDirection": 219.0,
+                "windSpeed": 5.2,
+                "time": "2022-02-25 09:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 2.4,
+                "tempDiff": "",
+                "humidity": 68.0,
+                "pressure": 1021.0,
+                "windDirection": 210.0,
+                "windSpeed": 3.4,
+                "time": "2022-02-25 08:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 2.3,
+                "tempDiff": "",
+                "humidity": 67.0,
+                "pressure": 1021.0,
+                "windDirection": 192.0,
+                "windSpeed": 1.9,
+                "time": "2022-02-25 07:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 3.3,
+                "tempDiff": "",
+                "humidity": 63.0,
+                "pressure": 1021.0,
+                "windDirection": 219.0,
+                "windSpeed": 3.2,
+                "time": "2022-02-25 06:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 3.2,
+                "tempDiff": "",
+                "humidity": 63.0,
+                "pressure": 1021.0,
+                "windDirection": 213.0,
+                "windSpeed": 3.1,
+                "time": "2022-02-25 05:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 4.5,
+                "tempDiff": "",
+                "humidity": 58.0,
+                "pressure": 1021.0,
+                "windDirection": 212.0,
+                "windSpeed": 3.0,
+                "time": "2022-02-25 04:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 5.0,
+                "tempDiff": "",
+                "humidity": 57.0,
+                "pressure": 1021.0,
+                "windDirection": 219.0,
+                "windSpeed": 4.0,
+                "time": "2022-02-25 03:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 5.3,
+                "tempDiff": "",
+                "humidity": 56.0,
+                "pressure": 1022.0,
+                "windDirection": 221.0,
+                "windSpeed": 2.6,
+                "time": "2022-02-25 02:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 4.9,
+                "tempDiff": "",
+                "humidity": 58.0,
+                "pressure": 1022.0,
+                "windDirection": 237.0,
+                "windSpeed": 1.7,
+                "time": "2022-02-25 01:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 4.5,
+                "tempDiff": "",
+                "humidity": 58.0,
+                "pressure": 1023.0,
+                "windDirection": 229.0,
+                "windSpeed": 1.1,
+                "time": "2022-02-25 00:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 3.7,
+                "tempDiff": "",
+                "humidity": 59.0,
+                "pressure": 1023.0,
+                "windDirection": 217.0,
+                "windSpeed": 1.0,
+                "time": "2022-02-24 23:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 4.0,
+                "tempDiff": "",
+                "humidity": 56.0,
+                "pressure": 1024.0,
+                "windDirection": 135.0,
+                "windSpeed": 1.1,
+                "time": "2022-02-24 22:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 4.7,
+                "tempDiff": "",
+                "humidity": 53.0,
+                "pressure": 1024.0,
+                "windDirection": 110.0,
+                "windSpeed": 0.9,
+                "time": "2022-02-24 21:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 5.5,
+                "tempDiff": "",
+                "humidity": 50.0,
+                "pressure": 1024.0,
+                "windDirection": 127.0,
+                "windSpeed": 0.4,
+                "time": "2022-02-24 20:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 6.5,
+                "tempDiff": "",
+                "humidity": 45.0,
+                "pressure": 1024.0,
+                "windDirection": 135.0,
+                "windSpeed": 0.8,
+                "time": "2022-02-24 19:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 9.8,
+                "tempDiff": "",
+                "humidity": 36.0,
+                "pressure": 1023.0,
+                "windDirection": 139.0,
+                "windSpeed": 1.0,
+                "time": "2022-02-24 18:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 11.5,
+                "tempDiff": "",
+                "humidity": 30.0,
+                "pressure": 1023.0,
+                "windDirection": 177.0,
+                "windSpeed": 1.7,
+                "time": "2022-02-24 17:00"
+            },
+            {
+                "rain1h": 0.0,
+                "rain24h": 9999.0,
+                "rain12h": 9999.0,
+                "rain6h": 9999.0,
+                "temperature": 11.8,
+                "tempDiff": "",
+                "humidity": 28.0,
+                "pressure": 1024.0,
+                "windDirection": 138.0,
+                "windSpeed": 1.5,
+                "time": "2022-02-24 16:00"
+            }
+        ],
+        "climate": {
+            "time": "1981年-2010年",
+            "month": [
+                {
+                    "month": 1,
+                    "maxTemp": 3.2,
+                    "minTemp": -7.1,
+                    "precipitation": 2.0
+                },
+                {
+                    "month": 2,
+                    "maxTemp": 7.2,
+                    "minTemp": -3.9,
+                    "precipitation": 5.4
+                },
+                {
+                    "month": 3,
+                    "maxTemp": 13.7,
+                    "minTemp": 1.9,
+                    "precipitation": 11.4
+                },
+                {
+                    "month": 4,
+                    "maxTemp": 21.8,
+                    "minTemp": 9.2,
+                    "precipitation": 18.5
+                },
+                {
+                    "month": 5,
+                    "maxTemp": 27.4,
+                    "minTemp": 14.9,
+                    "precipitation": 37.4
+                },
+                {
+                    "month": 6,
+                    "maxTemp": 31.9,
+                    "minTemp": 20.0,
+                    "precipitation": 71.3
+                },
+                {
+                    "month": 7,
+                    "maxTemp": 32.0,
+                    "minTemp": 22.8,
+                    "precipitation": 147.1
+                },
+                {
+                    "month": 8,
+                    "maxTemp": 30.5,
+                    "minTemp": 21.5,
+                    "precipitation": 116.4
+                },
+                {
+                    "month": 9,
+                    "maxTemp": 26.9,
+                    "minTemp": 16.1,
+                    "precipitation": 46.1
+                },
+                {
+                    "month": 10,
+                    "maxTemp": 21.0,
+                    "minTemp": 9.2,
+                    "precipitation": 27.1
+                },
+                {
+                    "month": 11,
+                    "maxTemp": 11.8,
+                    "minTemp": 0.9,
+                    "precipitation": 11.1
+                },
+                {
+                    "month": 12,
+                    "maxTemp": 4.9,
+                    "minTemp": -4.8,
+                    "precipitation": 3.1
+                }
+            ]
+        },
+        "radar": {
+            "title": "华北",
+            "image": "/product/2022/02/25/RDCP/SEVP_AOC_RDCP_SLDAS_EBREF_ANCN_L88_PI_20220225073600001.PNG?v=1645775246355",
+            "url": "/publish/radar/huabei.html"
+        }
+    }
+}

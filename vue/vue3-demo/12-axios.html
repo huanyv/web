@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios</title>
+</head>
+<body>
+
+    <!-- 
+        默认是异步请求
+        同步
+            方法名前加上 async
+            请求前加上  await
+     -->
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <div id="app">
+
+    </div>
+    <script>
+        var app = Vue.createApp({
+            methods: {
+                async getWeather() {
+                    await axios.get("http://wthrcdn.etouch.cn/weather_mini?city=沧州")
+                        .then(function(response) {
+                            console.log(response.data);
+                        })
+                    console.log(123);
+                }
+            },
+            mounted() {
+                this.getWeather()
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>

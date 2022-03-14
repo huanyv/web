@@ -1,0 +1,105 @@
+/*博客首页样式*/
+
+/*通用样式*/
+body {
+    margin: 0;
+    background-color: lightgrey;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/*左侧样式*/
+.blog-left {
+    float: left;
+    width: 20%;
+    height: 100%;
+    background-color: #4e4e4e;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.blog-avatar {
+    width: 150px;
+    height: 150px;
+    border: 5px grey solid;
+    border-radius: 50%;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.blog-avatar img {
+    width: 100%;
+}
+
+.blog-title, .blog-info {
+    font-size: 16px;
+    color: lightgrey;
+    text-align: center;
+}
+
+.blog-link a, .blog-tag a {
+    font-size: 18px;
+    color: lightgrey;
+}
+
+.blog-link a:hover, .blog-tag a:hover {
+    color: white;
+}
+
+.blog-link ul, .blog-tag ul {
+    margin: 100px auto;
+    text-align: center;
+
+}
+
+/*右侧样式*/
+.blog-right {
+    float: right;
+    width: 80%;
+    height: 1000px;
+}
+
+.article-list {
+    background-color: white;
+    margin: 20px 40px 20px 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.article-title {
+    border-left: 5px solid red;
+}
+
+.article-title .title {
+    font-size: 28px;
+    margin-left: 20px;
+}
+
+.article-title .date {
+    float: right;
+    margin: 20px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.article-content p {
+    text-indent: 25px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.article-content {
+    border-bottom: 2px solid black;
+}
+
+.article-tag {
+    margin-left: 25px;
+    padding: 10px 20px 10px 2px;
+    color: rgba(0, 0, 0, 0.8);
+
+}

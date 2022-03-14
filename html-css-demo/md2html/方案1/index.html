@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="content"></div>
+
+    <script src="./node_modules/showdown/dist/showdown.min.js"></script>
+    <script>
+        // import showdown from 'showdown';
+        let converter = new showdown.Converter();
+        //html变量是HTML代码字符串
+        //text是Markdown语法的字符串
+        let html = converter.makeHtml("# wqvb");
+        console.log(html);
+
+        document.getElementById("content").innerHTML = html;
+    </script>
+    
+</body>
+</html>

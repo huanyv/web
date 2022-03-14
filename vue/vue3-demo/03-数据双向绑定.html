@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <span>
+            {{message}}
+        </span>
+        <br>
+        <input type="text" name="input" id="input" v-model="username">
+        <input type="password" name="password" v-model="password">
+        <button type="button" v-on:click="submit">btn</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const vue = {
+            data() {
+                return {
+                    username:"",
+                    password:"",
+                    message:"hello vue"
+                }
+            },
+            methods: {
+                submit() {
+                    console.log(this.username);
+                    console.log(this.password);
+                }
+            }
+        }
+        Vue.createApp(vue).mount("#app")
+    </script>
+</body>
+</html>

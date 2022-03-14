@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>huanyv</title>
+    <link rel="stylesheet" href="blog_style.css" />
+  </head>
+  <body>
+    <script src="./notes/notes.js"></script>
+    <script type="text/javascript">
+
+        window.onload = function() {
+            var note = document.getElementById("notes");
+            var count = notes.total;
+            var str = "";     
+        
+            notes.data.sort(function(a,b){
+                return new Date(b.date) - new Date(a.date);
+            })
+
+            for(var i = 0; i < count; i++){
+                var url = notes.data[i].url;
+                var title = notes.data[i].title;
+                var date = notes.data[i].date;
+                var content = notes.data[i].content;
+                var tag = notes.data[i].tag;
+
+                str += '<div class="article-list">';
+
+                str += '<div class="article-title">';
+                str += '<span class="title"><a href="'+ url +'"target="_blank"style="color: black">'+ title +'</a></span>';
+                str += '<span class="date">'+ date +'</span>';
+                str += '</div>';
+
+                str += '<div class="article-content">';
+                str += '<p>'+ content +'</p>';
+                str += '</div>';
+
+                str += '<div class="article-tag">';
+                for(var j = 0; j < tag.length;j++) {
+                    str += '<span>';
+                    str += '#'+ tag[j] +'&nbsp;&nbsp;';
+                    str += '</span>';
+                }
+                str += '</div>';
+
+                str += '</div>';
+            }
+            note.innerHTML = str;
+        }
+    </script>
+
+    <div class="blog-left">
+
+      <div class="blog-avatar">
+        <img src="./pic/head.jpg" alt="" /><!--头像-->
+      </div>
+      <div class="blog-title">幻雨</div>
+      <div class="blog-info">Easy Come Easy Go</div>
+      <br />
+      <div class="blog-info">资深CV工程师</div>
+
+      <div class="blog-link">
+        <ul>
+          <li><a href="" target="_blank">关于我</a></li>
+        </ul>
+      </div>
+
+      <div class="blog-tag">
+        <ul>
+		<!--      -->
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="blog-right" id="notes"></div>
+
+  </body>
+</html>

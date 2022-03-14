@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <table>
+            <!-- 在 HTML 中则是横线字符分割 -->
+            <table-content v-for="user in users" v-bind:user="user"></table-content>
+        </table>
+    </div>
+    
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        // 定义一个组件
+        const componentItem = {
+            props: ["user"],
+            template: "<tr><td>{{user.username}}</td><td>{{user.age}}</td><td>{{user.sex}}</td></tr>"
+        }
+        const app = {
+            // 把一个组件实例，引入到 app 中来
+            // tableContent 当做标签
+            components: {
+                tableContent: componentItem
+            },
+            data() {
+                return {
+                    users: [{
+                        username:"zhangsan",
+                        age:18,
+                        sex:"男"
+                    },{
+                        username:"lisi",
+                        age:19,
+                        sex:"男"
+                    },{
+                        username:"wangwu",
+                        age:20,
+                        sex:"女"
+                    }]
+                }
+            }
+
+        }
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+</html>

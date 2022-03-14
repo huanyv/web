@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="./others/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/in.css">
+</head>
+<body>
+    <script src="./others/layui/layui.js"></script>
+    <div class="layui-container">
+        <div class="layui-row">
+            
+            <div class="layui-row" id="panel" style="background-color: aquamarine;">
+                <div class="layui-col-md6" id="panel-left">
+                    <h1 id="title">欢迎注册</h1>
+                </div>
+                <div class="layui-col-md6" id="panel-right">
+                    <div class="layui-row" id="subTitle">
+                        <div class="layui-col-md1 layui-col-md-offset2">
+                            <h2>注册</h2>
+                        </div>
+                        <div class="layui-col-md4 layui-col-md-offset4">
+                            <h3>已有帐号？<a href="./login.html">点此登录</a></h3>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md8 layui-col-md-offset2">
+                            <form action="#" class="layui-form">
+                                <div class="layui-form-item">
+                                    <input type="text" name="username" id="username"
+                                        class="layui-input" required  lay-verify="required"
+                                        placeholder="用户名" autocomplete="off"
+                                        pattern="^[a-zA-z][0-9a-zA-Z\u0000-\u00FF]{4,9}$"
+                                        title="用户名长度为5-10位，字母开头，可以包含数字、大小写字母、标点符号">
+                                </div>
+    
+                                <div class="layui-form-item">
+                                    <input type="text" name="password" id="password"
+                                        class="layui-input" required  lay-verify="required"
+                                        placeholder="请输入密码" autocomplete="off"
+                                        pattern="^[a-zA-z][0-9a-zA-Z\u0000-\u00FF]{4,9}$">
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <input type="text" id="password"
+                                        class="layui-input" required  lay-verify="required"
+                                        placeholder="确认密码" autocomplete="off">
+                                </div>
+                                
+                                <div class="layui-form-item">
+                                    <input type="text" name="password" id="password"
+                                        class="layui-input" required  lay-verify="required"
+                                        placeholder="验证码" autocomplete="off"
+                                        pattern="">
+                                </div>
+    
+                                <div class="layui-form-item">
+                                    <button type="submit" 
+                                        class="layui-btn layui-btn-normal layui-btn-fluid"
+                                    >登录</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取下拉列表的选中值</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+    window.onload = function() {
+        document.getElementById("select").onchange = function() {
+            var num = document.getElementById("select").value;
+            console.log(num);
+        }
+    }
+    </script>
+
+    <select id="select">
+        <option value ="">--请选择省份--</option>
+        <option value="001">河北</option>
+        <option value="002">河南</option>
+        <option value="003">山东</option>
+        <option value="004">山西</option>
+    </select>
+    
+</body>
+</html>

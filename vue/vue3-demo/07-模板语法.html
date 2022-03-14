@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+        <span v-html="message"></span>
+        <span v-once>这个值不会改变：{{ num }}</span><br>
+        <span>这个值会改变：{{num}}</span><br>
+        <button id="btn" v-on:click="add()" v-bind:disabled="false">按钮</button>
+        <br>
+        <span>模板插值可以使用script表达式：{{num + 100}}</span>
+    </div><script src="https://unpkg.com/vue@next"></script>
+    
+    <script>
+        const app = {
+            data() {
+                return {
+                    message: "<h1>hello</h1>",
+                    num: 0
+                }
+            },
+            methods: {
+                add() {
+                    this.num++;
+                }
+            }
+        };
+        Vue.createApp(app).mount("#app"); // 创建一个Vue应用，挂载到html元素上
+    </script>
+</body>
+</html>

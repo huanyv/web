@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>简易网盘</title>
+  <link rel="stylesheet" href="./others/layui/css/layui.css">
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo layui-hide-xs layui-bg-black">简易网盘</div>
+
+    <!-- 头部区域（可配合layui 已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item layui-hide-xs"><a href="#">文件</a></li>
+      <li class="layui-nav-item"><a href="#">
+        <i class="layui-icon">&#xe681;</i>
+        上传</a></li>
+      <li class="layui-nav-item"><a href="#">
+        <i class="layui-icon">&#xe61f;</i>
+        新建文件夹</a></li>
+    </ul>
+
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item layui-hide layui-show-md-inline-block">
+        <a href="javascript:;">
+          <img src="./img//男头像.png" class="layui-nav-img">
+          user
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="#">个人中心</a></dd>
+          <dd><a href="#">帮助中心</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item">
+        <a href="#">退出</a>
+      </li>
+    </ul>
+
+  </div>
+  
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree" lay-filter="test">
+        <li class="layui-nav-item"><a href="#">全部文件</a></li>
+        <li class="layui-nav-item"><a href="#">图片</a></li>
+        <li class="layui-nav-item"><a href="#">文档</a></li>
+        <li class="layui-nav-item"><a href="#">视频</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="layui-body">
+
+    <!-- 文件列表 -->
+    <!-- <div style="padding: 15px;">内容主体区域。记得修改 layui.css 和 js 的路径</div> -->
+    <div class="layui-row">
+      <div class="layui-col-md10 layui-col-md-offset1">
+        <table id="fileList" lay-filter="test"></table>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="layui-footer">
+    <!-- 上传进度条 -->
+    
+  </div>
+</div>
+
+	<!-- 表头工具栏 -->
+	<script type="text/html" id="barDemo">
+		<a class="layui-btn layui-btn-xs" lay-event="rename">重命名</a>
+		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+	</script>
+
+	<script src="./others/layui/layui.js"></script>
+	<script>
+	//JS 
+	layui.use(['element', 'layer', 'util'], function(){
+		var element = layui.element
+		,layer = layui.layer
+		,util = layui.util
+		,$ = layui.$;
+	});
+
+	layui.use('table', function(){
+		var table = layui.table;
+		//第一个实例
+		table.render({
+			elem: '#fileList'
+			// ,height: 312
+			,skin: 'nob' //行边框风格
+			,url: './file.json' //数据接口
+			,cols: [[ //表头
+				{field: 'fileName', title: '文件名', width:500, sort: true, fixed: 'left'}
+				,{field: 'date', title: '修改时间', width:120,sort: true}
+				,{field: 'size', title: '大小', width:120, sort: false}
+				,{field:"操作",toolbar:"#barDemo"}
+				]]
+			,toolbar: '#toolbarDemo'
+		});
+
+		//工具条事件
+		table.on('tool(test)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+			var data = obj.data; //获得当前行数据
+			var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+			var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
+
+			if(layEvent === 'del'){ //删除
+				layer.confirm('确定删除？', function(index){
+					obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+
+					layer.close(index);
+					//向服务端发送删除指令
+
+				});
+			} else if(layEvent === 'rename'){ //编辑
+
+				layer.prompt({
+					formType: 0,
+					value: data.fileName,
+					title: '新文件名',
+					area: ['800px', '350px'] //自定义文本域宽高
+					}, function(value, index, elem){
+
+					//同步更新缓存对应的值
+						obj.update({
+							fileName: value
+						});
+					layer.close(index);
+				});
+				
+			}
+		});	
+
+	});
+
+	</script>
+</body>
+</html>

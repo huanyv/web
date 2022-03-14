@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=、, initial-scale=1.0">
+    <title>多个学生JOSN</title>
+</head>
+<body>
+    <script type="text/javascript">
+    
+        var students = {
+            "total" : 3,
+            "data"  : [{
+                "name":"zhangsan",
+                "age":20
+            },{
+                "name":"lisi",
+                "age":21
+            },{
+                "name":"wangwu",
+                "age":20
+            }]
+        }
+
+        for(var i = 0; i < students.total; i++) {
+            console.log(students.data[i].name);
+            console.log(students.data[i].age);
+        }
+
+    
+    </script>
+</body>
+</html>

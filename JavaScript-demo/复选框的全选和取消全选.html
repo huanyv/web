@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复选框</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        window.onload = function() {
+
+            var allbtnEle = document.getElementById("allbtn");
+            var aihaos = document.getElementsByName("aihao");
+            allbtnEle.onclick = function() {
+                for(var i in aihaos) {
+                    aihaos[i].checked = allbtn.checked;
+                }
+            }
+            for(var i = 0; i < aihaos.length; i++) {
+                aihaos[i].onclick = function() {
+                    checkCount = 0;
+                    for(var i = 0; i < aihaos.length; i++) {
+                        if(aihaos[i].checked == true) {
+                            checkCount++;
+                        }
+                    }
+                    if(checkCount >= aihaos.length) {
+                        allbtn.checked = true;
+                    } else {
+                        allbtn.checked = false;
+                    }
+                }
+            }
+
+        }
+
+    </script>
+    
+
+    <input type="checkbox" value="all" id="allbtn">全选<br>
+    <input type="checkbox" name="aihao" value="smoke">抽烟<br>
+    <input type="checkbox" name="aihao" value="drink">喝酒<br>
+    <input type="checkbox" name="aihao" name="hare">烫头<br>
+</body>
+</html> 

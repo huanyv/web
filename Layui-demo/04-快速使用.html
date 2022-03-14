@@ -1,0 +1,41 @@
+HTML
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <metaname="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>开始使用 layui</title>
+    <link rel="stylesheet" href="./layui/css/layui.css" />
+  </head>
+  <body>
+    <!-- 你的 HTML 代码 -->
+
+    <script src="./layui/layui.js"></script>
+
+    <script>
+      layui.use('layer', function() {
+            var layer = layui.layer;
+
+            layer.msg("Hello World!");
+        })
+
+        layui.use('layer', function() {
+            var layer = layui.layer;
+
+            /* 信息框 */
+            layer.open({
+                type: 0,						  // 0为信息框
+                title:"系统消息",
+                // title: false,  				   //不显示标题
+                // title: ['标题', 'color:red;'],   // 自定义标题区域样式
+
+                // content可以传入任意的文本或html
+                content: "Hello"
+            });
+        })
+    </script>
+    
+
+    <div class=" layui-anim layui-main layui-bg-cyan layui-anim-down">111</div>
+  </body>
+</html>

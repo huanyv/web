@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="./others/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <!-- <script src="./others/jquery/jquery-3.6.0.js"></script> -->
+    <script src="./others/layui/layui.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    
+    <div class="layui-fluid" id="container">
+        <div class="layui-row" id="box">
+            
+            <!-- 左侧信息一 -->
+            <div class="layui-col-md5" id="blog-left" >
+                <div id="head" >
+                    <img src="./img/head1.png">
+                    
+                </div>
+                <h1 id="name"><span>哈哈</span></h1>
+            </div>
+            <!-- 文章列表 -->
+            <div class="layui-col-md7" id="blog-right">
+                <ul class="layui-nav layui-bg-gray" lay-filter="">
+                    <li class="layui-nav-item layui-this">
+                        <a href="#" class="layui-font-black">首页</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="#"class="layui-font-black">关于</a>
+                    </li>
+                </ul>
+
+                <div class="layui-row blog-list" v-for="archives in archivesList">
+                    <div class="layui-row blog-list-title">
+                        <a href="#">{{ archives.title }}</a>
+                        
+                    </div>
+                    <div class="layui-row blog-list-content">
+                        {{ archives.abstract }}
+                    </div>
+                    <div class="layui-row blog-list-footer">
+                        <i class="layui-icon">&#xe68d;</i>{{ archives.date }}
+                        <i class="layui-icon">&#xe609;</i>{{ archives.traffic }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> 
+    <script>
+        //注意：导航 依赖 element 模块，否则无法进行功能性操作
+        layui.use('element', function(){
+            var element = layui.element;
+        });
+
+        var archivesApp = Vue.createApp({
+            data() {
+                return {
+                    archivesList: []
+                }
+            },
+            methods: {
+                getArchives() {
+                    axios.get("/api/getArchives").then((response) => {
+                        this.archivesList = response.data.data
+                    })
+                }
+            },
+            mounted() {
+                this.getArchives()
+            }
+        }).mount("#blog-right")
+    </script>
+</body>
+</html>

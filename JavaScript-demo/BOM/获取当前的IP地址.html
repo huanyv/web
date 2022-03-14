@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP地址</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+    function getPath() {
+        var htt = window.location.protocol;// 获取协议 
+        var host = window.location.host;// 获取地址和端口号
+        return htt+"//"+host;
+    }
+    console.log(window.location.href)//地址
+    // console.log(window.location.hostname)
+    // console.log(window.location.pathname)
+    // console.log(window.location.protocol)//  协议
+    // console.log(window.location.assign  )
+
+        window.onload = function() {
+
+
+
+            document.getElementById("ip").innerHTML = getPath();
+
+        }
+    </script>
+
+    <span id="ip"></span>
+</body>
+</html>

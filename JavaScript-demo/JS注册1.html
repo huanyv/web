@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS注册1</title>
+</head>
+<!-- <body>
+    <input type="button" value="按钮" id="btn">
+    
+    <script type="text/javascript">
+    			
+        function sum(){
+        	console.log("sum function invoke!")
+        }
+        
+        var hellobtnElt = document.getElementById("btn");
+        // 函数名不能有括号
+        hellobtnElt.onclick = sum;
+    </script>
+</body> -->
+
+<body>
+    <script type="text/javascript">
+        window.onload = function() {
+            var el = document.getElementById("btn");
+            
+            el.onclick = function() {
+                console.log("按钮按下");
+            }
+        }
+    </script>
+    
+    <input type="button" value="按钮" id="btn">
+</body>
+
+
+
+</html>

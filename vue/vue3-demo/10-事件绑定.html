@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-事件绑定</title>
+</head>
+<body>
+    <!-- 
+        绑定多个事件
+        <button @click="one($event), two($event)">
+            Submit
+        </button>
+     -->
+    <div id="app">
+        <button @click="click($event)">按钮</button>
+
+    </div>
+    <!-- <script src="./js/vue/vue.js"></script> -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        var app = Vue.createApp({
+            data() {
+
+            },
+            methods: {
+                click(event) {
+                    console.log(event);
+                    console.log(event.target.tagName);
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

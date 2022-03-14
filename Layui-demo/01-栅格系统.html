@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>栅格系统</title>
+    <link rel="stylesheet" href="./layui-v2.6.8/layui/css/layui.css">
+</head>
+<body>
+    <div class="layui-container">
+        <div class="layui-row" style="height: 200px;">
+
+        </div>
+        
+        <form action="" class="layui-form">
+            <div class="layui-form-item layui-row">
+                <div class="layui-col-md1 layui-col-md-offset3">
+                    <label for="username" class="layui-form-label"><h3>用户名：</h3></label>       
+                </div>
+                <div class="layui-col-md5">
+                    <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input" id="username">
+                </div>
+            </div>
+            <div class="layui-row">
+                <br>
+            </div>
+
+            <div class="layui-form-item layui-row">
+                <div class="layui-col-md1 layui-col-md-offset3">
+                    <label for="password" class="layui-form-label" ><h3>密码：</h3></label>       
+                </div>
+                <div class="layui-col-md5">
+                    <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" id="password">
+                </div>
+            </div>
+            <br><br>
+
+            <div class="layui-row">
+                <div class="layui-col-md4 layui-col-md-offset5">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">登录</button>
+                </div>
+
+            </div>
+            
+
+        </form>
+
+    </div>
+</body>
+</html>
