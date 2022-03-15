@@ -111,9 +111,10 @@ public class json {
 
 	// 指定后缀
     public static boolean fileNameIsEndsWith(String fileName) {
-        return (fileName.endsWith("html") || fileName.endsWith("md")) && 
-        			!fileName.contains("index") && 
-        			!fileName.contains("README");
+        return (fileName.endsWith("html") || fileName.endsWith("md")) 
+            && !fileName.contains("index") 
+            && !fileName.contains("README") 
+            && !fileName.contains("_navbar");
     }
 
     // 格式化时间
