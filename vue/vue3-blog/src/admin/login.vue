@@ -13,7 +13,9 @@
             show-password
             class="input"
           />
-          <el-button type="primary" id="loginBtn" @click="login()">登录</el-button>
+          <el-button type="primary" id="loginBtn" @click="login()"
+            >登录</el-button
+          >
         </el-col>
         <el-col :span="2"></el-col>
       </el-row>
@@ -22,22 +24,26 @@
   </el-row>
 </template>
 
-<script  setup>
-import { ref } from "vue";
-const username = ref("");
-const password = ref("");
-</script>
 
 <script>
+import { ref } from "vue";
 export default {
-    methods: {
-        login() {
-            console.log(this.username);
-            console.log(this.password);
-            this.$router.push("/admin")
-        }
-    }
-}
+  setup() {
+    const username = ref("");
+    const password = ref("");
+    return {
+      username,
+      password,
+    };
+  },
+  methods: {
+    login() {
+      console.log(this.username);
+      console.log(this.password);
+      this.$router.push("/admin");
+    },
+  },
+};
 </script>
 
 <style scoped>

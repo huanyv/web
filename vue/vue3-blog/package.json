@@ -12,12 +12,9 @@
     "axios": "^0.26.1",
     "core-js": "^3.8.3",
     "element-plus": "^2.0.6",
-    "jquery": "^3.6.0",
     "marked": "^4.0.12",
-    "mavon-editor": "^2.10.4",
     "md-editor-v3": "^1.11.1",
     "run": "^1.4.0",
-    "uuid": "^8.3.2",
     "vue": "^3.2.13",
     "vue-axios": "^3.4.1",
     "vue-router": "^4.0.14"

@@ -31,56 +31,60 @@
       </el-table>
     </el-col>
     <el-col :span="4">
-      {{tempdata}}
+      {{ tempdata }}
     </el-col>
   </el-row>
 </template>
 
-<script setup>
-import { Edit, Delete } from "@element-plus/icons-vue";
-import { reactive } from "vue";
-const tableData = reactive([
-  {
-    id: 1,
-    title: "文章1",
-    traffic: "10",
-    date: "2016-05-03",
-  },
-  {
-    id: 2,
-    title: "文章2",
-    traffic: "10",
-    date: "2016-05-03",
-  },
-  {
-    id: 3,
-    title: "文章3",
-    traffic: "10",
-    date: "2016-05-03",
-  },
-  {
-    id: 4,
-    title: "文章4",
-    traffic: "10",
-    date: "2016-05-03",
-  },
-  {
-    id: 5,
-    title: "文章5",
-    traffic: "10",
-    date: "2016-05-03",
-  },
-]);
-</script>
-
 <script>
 import { ElMessage } from "element-plus";
+import { Edit, Delete } from "@element-plus/icons-vue";
+import { reactive } from "vue";
 export default {
+  setup() {
+    const tableData = reactive([
+      {
+        id: 1,
+        title: "文章1",
+        traffic: "10",
+        date: "2016-05-03",
+      },
+      {
+        id: 2,
+        title: "文章2",
+        traffic: "10",
+        date: "2016-05-03",
+      },
+      {
+        id: 3,
+        title: "文章3",
+        traffic: "10",
+        date: "2016-05-03",
+      },
+      {
+        id: 4,
+        title: "文章4",
+        traffic: "10",
+        date: "2016-05-03",
+      },
+      {
+        id: 5,
+        title: "文章5",
+        traffic: "10",
+        date: "2016-05-03",
+      },
+    ]);
+    return {
+      tableData,
+      Edit,
+      Delete,
+    };
+  },
   methods: {
     deleteArticle(index, info) {
       // {"id":5,"title":"文章5","traffic":"10","date":"2016-05-03"}
       console.log(info.id);
-      this.tableData.splice(index,1)
+      this.tableData.splice(index, 1);
 
       // 后端调用
 

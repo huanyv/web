@@ -8,16 +8,21 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      markdownToHtml: "# 文章" + this.aid,
+      markdownToHtml: ""
     };
   },
   methods: {
     get() {
+
+      // 后端请求
+
       // axios
-      //   .get("http://wthrcdn.etouch.cn/weather_mini?city=%E6%B2%A7%E5%B7%9E")
+      //   .get("")
       //   .then((response) => {
       //     this.markdownToHtml = parse(response.data.data.ganmao)
       //   });
+
+      this.markdownToHtml = parse("# 文章" + this.aid)
       
     },
   },
