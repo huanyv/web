@@ -24,7 +24,7 @@
               </div>
               &nbsp;&nbsp;username
             </template>
-            <el-menu-item index="3-1">个人资料</el-menu-item>
+            <el-menu-item index="">个人资料</el-menu-item>
             <el-menu-item index="/admin/login">退出登录</el-menu-item>
           </el-sub-menu>
         </el-menu>

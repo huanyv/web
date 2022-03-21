@@ -12,12 +12,11 @@
 </template>
  
 <script>
-import { defineComponent } from "vue";
 import MdEditor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
 import { ElMessage } from "element-plus";
 
-export default defineComponent({
+export default {
   components: {
     MdEditor,
   },
@@ -51,7 +50,7 @@ export default defineComponent({
     }
   },
   props: ["aid"],
-});
+};
 </script>
 <style scoped>
 input {
