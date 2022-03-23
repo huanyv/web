@@ -12,6 +12,8 @@ import Admin from '@/admin/index.vue'
 import ArticleAdmin from '@/admin/article.vue'
 import ArticleEdit from '@/admin/ArticleEdit.vue'
 
+import { message,getCookie } from '@/lib'
+
 const routes = [
     {
         path: "/",
@@ -36,6 +38,7 @@ const routes = [
     }, {
         path: "/admin",
         component: Admin,
+        meta: { requiresAuth: true },
         children: [
             {
                 path: "",
@@ -45,11 +48,7 @@ const routes = [
                 component: ArticleEdit,
                 props: true
             }
-        ],
-        beforeEnter: (to, from) => {
-            // reject the navigation 独享守卫
-            return true
-        },
+        ]
     }
 ]
 
@@ -58,13 +57,17 @@ const router = createRouter({
     routes
 })
 
-// 导航守卫
+// 全局路由导航守卫
 router.beforeEach((to, from) => {
-    // ...
-    // 返回 false 以取消导航
-    return true
-})
-
+    // console.log(to); // 去哪儿
+    // console.log(from); // 从哪儿来
+    if (to.meta.requiresAuth == true && getCookie("_username_") == '') {  // 如果需要登录验证,并且还未登录
+        message("warning","请先登录！")
+        router.push("/admin/login")
+        return false;
+    }
+    return true;
+});
 
 export default router
 

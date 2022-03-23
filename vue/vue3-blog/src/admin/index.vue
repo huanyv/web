@@ -10,10 +10,13 @@
           text-color="#fff"
           active-text-color="#ffd04b"
           @select="handleSelect"
-          router=true
         >
-          <el-menu-item index="/admin">后台管理</el-menu-item>
-          <el-menu-item index="/admin/edit">写文章</el-menu-item>
+          <el-menu-item index="1">
+            <router-link to="/admin">后台管理</router-link>
+          </el-menu-item>
+          <el-menu-item index="2">
+            <router-link to="/admin/edit">写文章</router-link>
+          </el-menu-item>
           <el-sub-menu index="3" id="head">
             <template #title>
               <div class="block">
@@ -22,10 +25,10 @@
                   src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
                 ></el-avatar>
               </div>
-              &nbsp;&nbsp;username
+              &nbsp;&nbsp;{{username}}
             </template>
-            <el-menu-item index="">个人资料</el-menu-item>
-            <el-menu-item index="/admin/login">退出登录</el-menu-item>
+            <el-menu-item index="3-1">个人资料</el-menu-item>
+            <el-menu-item index="3-2" @click="logout">退出登录</el-menu-item>
           </el-sub-menu>
         </el-menu>
       </el-header>
@@ -39,19 +42,41 @@
 <script setup>
 import { ref } from "vue";
 
-const activeIndex1 = ref("/admin");
-const activeIndex2 = ref("/admin/edit");
+const activeIndex1 = ref("1");
+const activeIndex2 = ref("2");
 const handleSelect = (key, keyPath) => {
   console.log(key, keyPath);
 };
 </script>
 
 <script>
-export default {};
+import { getCookie, delCookie } from "@/lib";
+export default {
+  data() {
+    return {
+      username: "",
+    };
+  },
+  methods: {
+    logout() {
+      console.log("logout");
+      // 清除登录状态
+      delCookie("_username_");
+      this.$router.push("/admin/login");
+    },
+  },
+  mounted() {
+    this.username = getCookie("_username_");
+  },
+};
 </script>
 
 
 <style>
+a {
+  text-decoration: none;
+}
+
 #head {
   position: absolute;
   right: 20px;
