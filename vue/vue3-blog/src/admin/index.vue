@@ -25,7 +25,7 @@
                   src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
                 ></el-avatar>
               </div>
-              &nbsp;&nbsp;{{username}}
+              &nbsp;&nbsp;{{ username }}
             </template>
             <el-menu-item index="3-1">个人资料</el-menu-item>
             <el-menu-item index="3-2" @click="logout">退出登录</el-menu-item>
@@ -39,19 +39,22 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-
-const activeIndex1 = ref("1");
-const activeIndex2 = ref("2");
-const handleSelect = (key, keyPath) => {
-  console.log(key, keyPath);
-};
-</script>
-
 <script>
-import { getCookie, delCookie } from "@/lib";
+import { ref } from "vue";
+import { getCookie, delCookie } from "@/utils";
 export default {
+  setup() {
+    const activeIndex1 = ref("1");
+    const activeIndex2 = ref("2");
+    const handleSelect = (key, keyPath) => {
+      console.log(key, keyPath);
+    };
+    return {
+      activeIndex1,
+      activeIndex2,
+      handleSelect,
+    };
+  },
   data() {
     return {
       username: "",
@@ -59,7 +62,6 @@ export default {
   },
   methods: {
     logout() {
-      console.log("logout");
       // 清除登录状态
       delCookie("_username_");
       this.$router.push("/admin/login");

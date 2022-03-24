@@ -10,11 +10,11 @@
 
   <md-editor v-model="text" style="height: 550px" />
 </template>
- 
+
 <script>
-import MdEditor from "md-editor-v3";
-import "md-editor-v3/lib/style.css";
-import { ElMessage } from "element-plus";
+import MdEditor from "md-editor-v3"
+import "md-editor-v3/lib/style.css"
+import { message } from "@/utils"
 
 export default {
   components: {
@@ -33,11 +33,7 @@ export default {
 
       // 后端调用
 
-      ElMessage({
-        showClose: true,
-        message: "保存成功",
-        type: "success",
-      });
+      message("success", "保存成功！");
     },
   },
   mounted() {
@@ -54,7 +50,6 @@ export default {
 </script>
 <style scoped>
 input {
-  /* margin-top: 10px; */
   margin-bottom: 20px;
 }
 button {

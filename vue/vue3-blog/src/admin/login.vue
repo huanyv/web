@@ -24,10 +24,9 @@
   </el-row>
 </template>
 
-
 <script>
 import { ref } from "vue";
-import { message, checkUsername, checkPassword, setCookie } from "@/lib";
+import { message, checkUsername, checkPassword, setCookie } from "@/utils";
 export default {
   setup() {
     const username = ref("");
@@ -39,9 +38,6 @@ export default {
   },
   methods: {
     login() {
-      console.log(this.username);
-      console.log(this.password);
-
       if (!checkUsername(this.username)) {
         message("error", "用户名由4-10位大小写字母数字组成，字母开头");
         return false;
@@ -54,12 +50,14 @@ export default {
 
       // 后端调用，判定是否登录成功
 
-      message("success", "登录成功");
-
-      // 保存登录状态
-      setCookie("_username_", this.username, 1);
-
-      this.$router.push("/admin");
+      if (true) {
+        message("success", "登录成功");
+        // 保存登录状态
+        setCookie("_username_", this.username, 1);
+        this.$router.push("/admin");
+      } else {
+        message("error", "登录失败！");
+      }
     },
   },
 };

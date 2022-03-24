@@ -2,50 +2,50 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 // 路由组件
-import Home from '@/home/index.vue'
-import HomeView from '@/home/Home.vue'
-import AboutView from '@/home/About.vue'
-import Article from '@/home/Article.vue'
+import home from '@/home/index.vue'
+import about from '@/home/about.vue'
+import articleList from '@/home/articleList.vue'
+import articleDetails from '@/home/articleDetails.vue'
 
-import LogIn from '@/admin/login.vue'
-import Admin from '@/admin/index.vue'
-import ArticleAdmin from '@/admin/article.vue'
-import ArticleEdit from '@/admin/ArticleEdit.vue'
+import login from '@/admin/login.vue'
+import admin from '@/admin/index.vue'
+import articleAdminList from '@/admin/articleAdminList.vue'
+import articleEdit from '@/admin/articleEdit.vue'
 
-import { message,getCookie } from '@/lib'
+import { message,getCookie } from '@/utils'
 
 const routes = [
     {
         path: "/",
-        component: Home,
+        component: home,
         children: [
             {
                 path: "/",
-                component: HomeView
+                component: articleList
             },
             {
                 path: "/about",
-                component: AboutView
+                component: about
             }
         ]
     }, {
         path: "/article/:aid",
-        component: Article,
+        component: articleDetails,
         props: true
     }, {
         path: "/admin/login",
-        component: LogIn
+        component: login
     }, {
         path: "/admin",
-        component: Admin,
+        component: admin,
         meta: { requiresAuth: true },
         children: [
             {
                 path: "",
-                component: ArticleAdmin,
+                component: articleAdminList,
             }, {
                 path: "edit/:aid(\\d+)?",
-                component: ArticleEdit,
+                component: articleEdit,
                 props: true
             }
         ]

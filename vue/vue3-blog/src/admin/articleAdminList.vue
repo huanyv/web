@@ -30,14 +30,12 @@
         </el-table-column>
       </el-table>
     </el-col>
-    <el-col :span="4">
-      {{ tempdata }}
-    </el-col>
+    <el-col :span="4"></el-col>
   </el-row>
 </template>
 
 <script>
-import { ElMessage } from "element-plus";
+import { message } from "@/utils";
 import { Edit, Delete } from "@element-plus/icons-vue";
 import { reactive } from "vue";
 export default {
@@ -88,11 +86,7 @@ export default {
 
       // 后端调用
 
-      ElMessage({
-        showClose: true,
-        message: "删除成功！",
-        type: "success",
-      });
+      message("success","删除成功！")
     },
     updateArticle(index, info) {
       console.log(info);
