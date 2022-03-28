@@ -45,7 +45,9 @@ export default {
       console.log(this.aid);
     }
   },
-  props: ["aid"],
+  props: {
+    aid: String
+  }
 };
 </script>
 <style scoped>

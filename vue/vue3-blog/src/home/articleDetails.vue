@@ -29,7 +29,9 @@ export default {
   mounted() {
     this.get()
   },
-  props: ["aid"], // 接收组件传值
+  props: {
+    aid: String
+  }
 };
 </script>
 <style scoped>
