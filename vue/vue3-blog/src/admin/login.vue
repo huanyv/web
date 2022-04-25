@@ -49,15 +49,23 @@ export default {
       }
 
       // 后端调用，判定是否登录成功
-
-      if (true) {
-        message("success", "登录成功");
-        // 保存登录状态
-        setCookie("_username_", this.username, 1);
-        this.$router.push("/admin");
-      } else {
-        message("error", "登录失败！");
-      }
+      this.axios
+        .post("http://localhost:8080/admin/login", {
+          username: this.username,
+          password: this.password,
+        })
+        .then((response) => {
+          let data = response.data;
+          console.log(data);
+          if (data.code == 200) {
+            message("success", "登录成功");
+            // 保存token
+            window.localStorage.setItem("token", data.data.token);
+            this.$router.push("/admin");
+          } else {
+            message("error", "登录失败！");
+          }
+        });
     },
   },
 };

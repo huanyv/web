@@ -14,7 +14,7 @@ export const checkUsername = (username) => {
 }
 
 export const checkPassword = (password) => {
-    return /^[A-Za-z][a-zA-Z0-9]{5,15}$/.test(password);
+    return /^[a-zA-Z0-9]{5,15}$/.test(password);
 }
 
 // 设置cookie

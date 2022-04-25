@@ -61,11 +61,11 @@ const router = createRouter({
 router.beforeEach((to, from) => {
     // console.log(to); // 去哪儿
     // console.log(from); // 从哪儿来
-    if (to.meta.requiresAuth == true && getCookie("_username_") == '') {  // 如果需要登录验证,并且还未登录
+    /* if (to.meta.requiresAuth == true && getCookie("_username_") == '') {  // 如果需要登录验证,并且还未登录
         message("warning","请先登录！")
         router.push("/admin/login")
         return false;
-    }
+    } */
     return true;
 });
 
