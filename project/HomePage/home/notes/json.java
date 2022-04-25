@@ -20,7 +20,7 @@ public class json {
 			String ok = s.next();
 			if("y".equals(ok)) {
 				System.out.println("success");
-				writeFileJSON("notes.txt",sb.toString());
+				writeFileJSON("notes.json",sb.toString());
 			}else {
 				System.out.println("fail!!");
 			}
