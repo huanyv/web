@@ -26,7 +26,8 @@
 
 <script>
 import { ref } from "vue";
-import { message, checkUsername, checkPassword, setCookie } from "@/utils";
+import { message, checkUsername, checkPassword } from "@/utils";
+import { login } from "@/request/api";
 export default {
   setup() {
     const username = ref("");
@@ -39,33 +40,31 @@ export default {
   methods: {
     login() {
       if (!checkUsername(this.username)) {
-        message("error", "用户名由4-10位大小写字母数字组成，字母开头");
+        message.error("用户名由4-10位大小写字母数字组成，字母开头");
         return false;
       }
 
       if (!checkPassword(this.password)) {
-        message("error", "密码由6-16位大小写字母数字组成，字母开头");
+        message.error("密码由6-16位大小写字母数字组成，字母开头");
         return false;
       }
 
       // 后端调用，判定是否登录成功
-      this.axios
-        .post("http://localhost:8080/admin/login", {
-          username: this.username,
-          password: this.password,
-        })
-        .then((response) => {
+      login({ username: this.username, password: this.password }).then(
+        (response) => {
           let data = response.data;
-          console.log(data);
           if (data.code == 200) {
-            message("success", "登录成功");
+            message.success(data.msg)
             // 保存token
-            window.localStorage.setItem("token", data.data.token);
+            window.localStorage.setItem("token", data.data.token)
+            window.localStorage.setItem("username", this.username)
             this.$router.push("/admin");
           } else {
-            message("error", "登录失败！");
+            message.error(data.msg)
           }
-        });
+        }
+
+      );
     },
   },
 };

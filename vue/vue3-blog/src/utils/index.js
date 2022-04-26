@@ -1,12 +1,36 @@
 
 import { ElMessage } from "element-plus";
-
+/* 
 export const message = (type, msg) => {
     ElMessage({
         showClose: true,
         message: msg,
         type: type,
     });
+}
+ */
+export const message = {
+    error: msg => {
+        ElMessage({
+            showClose: true,
+            message: msg,
+            type: "error",
+        });
+    },
+    success: msg => {
+        ElMessage({
+            showClose: true,
+            message: msg,
+            type: "success",
+        });
+    },
+    warning: msg => {
+        ElMessage({
+            showClose: true,
+            message: msg,
+            type: "warning",
+        });
+    }
 }
 
 export const checkUsername = (username) => {
@@ -43,3 +67,7 @@ export const getCookie = (key) => {
 export const delCookie = (key) => {
     document.cookie = `${encodeURIComponent(key)}=;expires=${new Date()}`
 };
+
+export const getToken = () => {
+    return window.localStorage.getItem("token")
+}

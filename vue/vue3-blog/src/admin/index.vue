@@ -41,13 +41,12 @@
 
 <script>
 import { ref } from "vue";
-import { getCookie, delCookie } from "@/utils";
 export default {
   setup() {
     const activeIndex1 = ref("1");
     const activeIndex2 = ref("2");
     const handleSelect = (key, keyPath) => {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     };
     return {
       activeIndex1,
@@ -62,13 +61,15 @@ export default {
   },
   methods: {
     logout() {
+      // 无为而治
+      window.localStorage.removeItem("token")
       // 清除登录状态
-      delCookie("_username_");
+      window.localStorage.removeItem("username")
       this.$router.push("/admin/login");
     },
   },
   mounted() {
-    this.username = getCookie("_username_");
+    this.username = window.localStorage.getItem("username")
   },
 };
 </script>

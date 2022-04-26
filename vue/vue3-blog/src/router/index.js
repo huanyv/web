@@ -12,7 +12,9 @@ import admin from '@/admin/index.vue'
 import articleAdminList from '@/admin/articleAdminList.vue'
 import articleEdit from '@/admin/articleEdit.vue'
 
-import { message,getCookie } from '@/utils'
+import { message,getToken } from '@/utils'
+
+import {checkLoginState} from '@/request/api'
 
 const routes = [
     {
@@ -61,11 +63,26 @@ const router = createRouter({
 router.beforeEach((to, from) => {
     // console.log(to); // 去哪儿
     // console.log(from); // 从哪儿来
-    /* if (to.meta.requiresAuth == true && getCookie("_username_") == '') {  // 如果需要登录验证,并且还未登录
-        message("warning","请先登录！")
-        router.push("/admin/login")
-        return false;
-    } */
+    if (to.meta.requiresAuth == true) {
+        let token = getToken()
+        if (token == null || token == "") {
+            message.warning("登录失效")
+            router.push("/admin/login")
+            return false;
+        }
+        // 校验Token合法性
+        checkLoginState().then(response => {
+            let data = response.date
+            if (data.code == 200) {
+                return true
+            } else {
+                message.warning(data.msg)
+                router.push("/admin/login")
+                return false;
+            }
+        })
+
+    }
     return true;
 });
 

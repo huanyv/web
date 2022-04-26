@@ -12,9 +12,10 @@
 </template>
 
 <script>
-import MdEditor from "md-editor-v3"
-import "md-editor-v3/lib/style.css"
-import { message } from "@/utils"
+import MdEditor from "md-editor-v3";
+import "md-editor-v3/lib/style.css";
+import { message } from "@/utils";
+import { addArticle, getArticle, updateArticle } from "@/request/api";
 
 export default {
   components: {
@@ -28,12 +29,53 @@ export default {
   },
   methods: {
     save() {
-      console.log(this.text);
-      console.log(this.title);
-
+      let summary = "";
+      let count = 0;
+      let i = 0;
+      while (count < 50) {
+        if (/^[\u4E00-\u9FA5a-zA-Z]$/.test(this.text.substring(i, i + 1))) {
+          summary += this.text.substring(i, i + 1);
+          count++;
+        }
+        i++;
+        if (i > this.text.length) {
+          break;
+        }
+      }
       // 后端调用
-
-      message("success", "保存成功！");
+      if (this.aid != "") {
+        // 更新、修改
+        updateArticle({
+          id: this.aid,
+          title: this.title,
+          summary: summary,
+          content: this.text
+        }).then(res => {
+          let data = res.data
+          if (data.code == 200) {
+            message.success(data.msg);
+            this.$router.push("/admin")
+          } else {
+            message.error(data.msg);
+          }
+        })
+      } else {
+        // 添加
+        addArticle({
+          title: this.title,
+          summary: summary,
+          content: this.text
+        }).then(res => {
+          let data = res.data
+          if (data.code == 200) {
+            message.success(data.msg);
+            this.$router.push("/admin")
+          } else {
+            message.error(data.msg);
+          }
+        })
+      }
+      // message("success", "保存成功！");
     },
   },
   mounted() {
@@ -41,13 +83,18 @@ export default {
       // 有文章id说明是编辑，从后端获取文章内容
 
       // 后端调用
+      getArticle({id:this.aid}).then(res => {
+        let data = res.data
+        this.title = data.data.title
+        this.text = data.data.content
+      })
 
       console.log(this.aid);
     }
   },
   props: {
-    aid: String
-  }
+    aid: String,
+  },
 };
 </script>
 <style scoped>

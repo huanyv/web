@@ -4,7 +4,7 @@
     <el-col :span="16">
       <el-table :data="tableData" stripe style="width: 100%">
         <el-table-column prop="title" label="标题" width="400" />
-        <el-table-column prop="date" label="发布时间" width="180" />
+        <el-table-column prop="createDate" label="发布时间" width="180" />
         <el-table-column prop="traffic" label="访问" width="180" />
         <el-table-column label="操作" width="180">
           <template #default="scope">
@@ -38,40 +38,10 @@
 import { message } from "@/utils";
 import { Edit, Delete } from "@element-plus/icons-vue";
 import { reactive } from "vue";
+import { listArticle, deleteArticle } from "@/request/api";
 export default {
   setup() {
-    const tableData = reactive([
-      {
-        id: 1,
-        title: "文章1",
-        traffic: "10",
-        date: "2016-05-03",
-      },
-      {
-        id: 2,
-        title: "文章2",
-        traffic: "10",
-        date: "2016-05-03",
-      },
-      {
-        id: 3,
-        title: "文章3",
-        traffic: "10",
-        date: "2016-05-03",
-      },
-      {
-        id: 4,
-        title: "文章4",
-        traffic: "10",
-        date: "2016-05-03",
-      },
-      {
-        id: 5,
-        title: "文章5",
-        traffic: "10",
-        date: "2016-05-03",
-      },
-    ]);
+    let tableData = reactive([]);
     return {
       tableData,
       Edit,
@@ -81,17 +51,33 @@ export default {
   methods: {
     deleteArticle(index, info) {
       // {"id":5,"title":"文章5","traffic":"10","date":"2016-05-03"}
-      console.log(info.id);
+      // console.log(info.id);
       this.tableData.splice(index, 1);
 
       // 后端调用
-
-      message("success","删除成功！")
+      deleteArticle({id: info.id}).then(res => {
+        let data = res.data
+        if (data.code == 200) {
+          message.success(data.msg);
+        } else {
+          message.error(data.msg);
+        }
+      })
     },
     updateArticle(index, info) {
-      console.log(info);
+      // console.log(info);
       this.$router.push("/admin/edit/" + info.id);
     },
+  },
+  mounted() {
+    listArticle().then((response) => {
+      let data = response.data;
+      if (data.code == 200) {
+        for (let i = 0; i < data.data.length; i++) {
+          this.tableData.push(data.data[i])
+        }
+      }
+    }); 
   },
 };
 </script>

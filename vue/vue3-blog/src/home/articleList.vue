@@ -7,11 +7,11 @@
         </router-link>
       </div>
       <div class="blog-list-content">
-        {{ article.abstract }}
+        {{ article.summary }}
       </div>
       <div class="blog-list-footer">
         <el-icon><timer /></el-icon>
-        {{ article.date }}&nbsp;
+        {{ article.createDate }}&nbsp;
         <el-icon><promotion /></el-icon>
         {{ article.traffic }}
       </div>
@@ -19,12 +19,17 @@
   </el-card>
 </template>
 
-<script setup>
-import { Timer, Promotion } from "@element-plus/icons-vue";
-</script>
 
 <script>
+import { Timer, Promotion } from "@element-plus/icons-vue";
+import {listArticleWeb} from '@/request/api'
 export default {
+  setup() {
+    return {
+      Timer, 
+      Promotion
+    }
+  },
   data() {
     return {
       articleList: [
@@ -73,6 +78,16 @@ export default {
   },
   mounted() {
     // 后端调用
+    this.articleList = [];
+    listArticleWeb().then(res => {
+      let data = res.data
+      if (data.code == 200) {
+        for(let i = 0; i < data.data.length; i++) {
+          this.articleList.push(data.data[i])
+        }
+      }
+    })
+
   },
 };
 </script>
