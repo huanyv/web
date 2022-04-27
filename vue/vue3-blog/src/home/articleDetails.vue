@@ -1,9 +1,9 @@
 <template>
-  <div v-html="markdownToHtml"></div>
+  <div v-html="markdownToHtml" id="content"></div>
 </template>
 <script>
 import { parse } from "marked";
-import axios from 'axios';
+import { getArticleWeb, addTraffic } from '@/request/api'
 
 export default {
   data() {
@@ -15,14 +15,16 @@ export default {
     get() {
 
       // 后端请求
+      getArticleWeb({id: this.aid}).then(res => {
+        let data = res.data
+        if (data.code == 200) {
+          this.markdownToHtml = parse(data.data.content)
+          data.data.traffic = data.data.traffic + 1;
+          addTraffic(data.data)
+        }
+      })
 
-      // axios
-      //   .get("")
-      //   .then((response) => {
-      //     this.markdownToHtml = parse(response.data.data.ganmao)
-      //   });
 
-      this.markdownToHtml = parse("# 文章" + this.aid)
       
     },
   },
@@ -35,12 +37,8 @@ export default {
 };
 </script>
 <style scoped>
-div {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+#content {
+  width: 60%;
+  margin: auto;
 }
 </style>

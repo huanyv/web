@@ -19,17 +19,14 @@
   </el-card>
 </template>
 
+<script setup>
+import { Timer, Promotion } from "@element-plus/icons-vue";
+</script>
 
 <script>
-import { Timer, Promotion } from "@element-plus/icons-vue";
+
 import {listArticleWeb} from '@/request/api'
 export default {
-  setup() {
-    return {
-      Timer, 
-      Promotion
-    }
-  },
   data() {
     return {
       articleList: [

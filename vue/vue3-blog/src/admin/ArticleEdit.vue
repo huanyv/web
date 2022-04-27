@@ -32,7 +32,7 @@ export default {
       let summary = "";
       let count = 0;
       let i = 0;
-      while (count < 50) {
+      while (count < 90) {
         if (/^[\u4E00-\u9FA5a-zA-Z]$/.test(this.text.substring(i, i + 1))) {
           summary += this.text.substring(i, i + 1);
           count++;
