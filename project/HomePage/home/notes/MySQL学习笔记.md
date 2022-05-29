@@ -393,6 +393,7 @@ char(长度)                   | 定长字符串
 varchar()                    | 变长字符串
 double(有效数字位数，小数位) | 数值型
 float(有效数字位数，小数位)	 | 数值型
+decimal                      |对应Java的bigDecimal，高精度
 int( 长度)	                 | 整型
 bigint(长度)	             | 长整型
 Date                         | 日期型 年月日

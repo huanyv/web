@@ -13,6 +13,10 @@
     * DOM编程是通过JavaScript对HTML中的dom节点进行操作，DOM是有规范的，DOM规范是W3C制定的。（Document Object Model：文档对象模型）
     * BOM编程是对浏览器本身操作，例如：前进、后退、地址栏、关闭窗口、弹窗等。由于浏览器有不同的厂家制造，所以BOM缺少规范，一般只是有一个默认的行业规范。（Browser Object Model：浏览器对象模型）
 
+### 真是个奇妙的语言
+
+![](img/javascript.jpg)
+
 ## 嵌入JS的三种方式
 
 ### 行间事件
@@ -25,7 +29,6 @@
 ### 页面Script标签嵌入
 
 * `<script type="text/javascript">JS代码</script>`
-* window.alert()的执行会阻塞当前页面的加载
 * 一个页面中可以写多个脚本块
 * 脚本块的位置没有限制
 * 暴露在脚本块中的JS代码在页面打开的时候遵循自上而下的顺序依次逐行执行
@@ -64,7 +67,7 @@ function 函数名(形式参数列表){
 }
 ```
 
-第二种  
+第二种，定义一个变量，值是一个匿名函数  
 
 ```
 函数名 = function(形式参数列表){
@@ -82,6 +85,60 @@ function 函数名(形式参数列表){
 	function sayHello(){
 		alert("hello js");
 	}
+</script>
+```
+
+### 回调函数
+
+* 因为函数是可以`var func = function() {}`这样定义的
+* 所以，函数名也可以看作一个**参数**
+* 把一个函数以**参数的形式**传递出去，这个函数将在某一时刻**被调用**（调用者是函数的接收方）, 【回调函数】
+
+```javascript
+// 定义一个回调函数
+function callback(data) {
+    console.log(data);
+}
+
+// 函数的接收方
+function call(fn) {
+    fn(123) // 回调函数执行
+}
+
+// 把 callback 这个函数以 形参 的形式发给 call 函数
+call(callback) 
+```
+
+### 箭头表达式
+
+* 语法：`(x, y) => x - y;`
+* 包围参数列表的小括号`()`
+    * 无参(一定要写括号):`() => {...}`
+    * 1个参数(括号可省略):`x => {...}`
+    * 多个参数(一定要写括号)：`(x, y) => {}`
+* 包围函数体的大括号`{}`
+    * 如果只有返回语句，可以省略{}和return关键字，直接写返回值。
+    * 但如果返回值是object类型，应该用()包围对象。
+        * 如`num => ({age:num})`。否则返回值为undefined。
+        * 原因见JS中的`{}`,`()`及自调用
+    * 如果有多条语句，函数体用`{}`括起来，不可省略。
+* **普通函数中 this 指向的是函数的调用者**
+* **箭头函数的 this 指向上下文对象**
+
+```
+<script>
+    var person = {
+        name: "zhangsan",
+        log: function() {
+            // 能正常使用 this 因为 log 函数的调用者正是 person
+            console.log(this.name);
+            setInterval(function() {
+                // 不能正常输出，因为这个函数的调用者是 setInterval 
+                console.log(this.name);
+            },500)
+        },
+    };
+    person.log()
 </script>
 ```
 
@@ -280,11 +337,13 @@ el.属性 =  ;
 ```
 
 
-## 运算符
+## void运算符
 
 * `javascript:`可以在html代码中指定JS语句
 * `void(表达式)`运算符的表达式没有返回值
 * `<a href="javascript:void(0)" id="id1" onclick="">超链接</a>`废除掉href标签
+* 如果想要在a标签的click函数中取得href的值，并不跳转链接，可以在click的回调函数最后`return false`
+    * <https://blog.csdn.net/xuwoool/article/details/83916197>
 
 
 ## 控制语句
@@ -313,6 +372,12 @@ el.属性 =  ;
 * `pop()`弹栈，返回弹出元素
 * `reverse()`数组元素反转
 * `join()`数组以传入串连接，返回字符串
+* `array.splice(index, howmany, item1, ....., itemX)`
+    * 方法向/从数组添加/删除项目，并返回删除的项目。
+    * `index`	必需。整数，指定在什么位置添加/删除项目，使用负值指定从数组末尾开始的位置。
+    * `howmany`	可选。要删除的项目数。如果设置为 0，则不会删除任何项目。
+    * `item1, ..., itemX`	可选。要添加到数组中的新项目。
+* `array.sort(function(a, b){return a - b});`
 
 ### Date
 
@@ -389,6 +454,7 @@ document.getElementById(id).style.property=新样式
 * `window.alert("sometext");`警告框
 * `window.confirm("sometext");`确认框，返回true或false
 * `window.prompt("sometext","defaultvalue");`输入值，返回输入文本
+* **会阻塞页面的加载**
 
 ### 窗口层级
 
@@ -422,6 +488,30 @@ if(window.top != window.self){
 * `document.location.href = "url"`
 * `document.location = "url"`
 
+#### location属性
+
+```
+http://localhost:8080/servlet/admin/hello5?name=%E5%BC%A0%E4%B8%89
+
+location
+Location {ancestorOrigins: DOMStringList, href: 'http://localhost:8080/servlet/admin/hello5?name=%E5%BC%A0%E4%B8%89', origin: 'http://localhost:8080', protocol: 'http:', host: 'localhost:8080', …}
+    ancestorOrigins: DOMStringList {length: 0}
+    assign: ƒ assign()
+    hash: ""
+    host: "localhost:8080"
+    hostname: "localhost"
+    href: "http://localhost:8080/servlet/admin/hello5?name=%E5%BC%A0%E4%B8%89"
+    origin: "http://localhost:8080"
+    pathname: "/servlet/admin/hello5"
+    port: "8080"
+    protocol: "http:"
+    reload: ƒ reload()
+    replace: ƒ replace()
+    search: "?name=%E5%BC%A0%E4%B8%89"
+    toString: ƒ toString()
+    valueOf: ƒ valueOf()
+    Symbol(Symbol.toPrimitive): undefined
+```
 
 ### 页面属性
 

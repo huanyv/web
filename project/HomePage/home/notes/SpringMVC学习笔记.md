@@ -206,7 +206,7 @@ public class RequestMappingController {
 ### value属性
 
 * 通过请求的匹配请求映射
-* 字符串数组类型，该请求映射有多少个请求地址对应
+* **字符串数组**类型，该请求映射有多少个请求地址对应
 * **必需设置项**
 
 ```java
@@ -539,7 +539,7 @@ public String testApplication(HttpSession session){
 
 * 视图解析器通过，视图前缀和视图后缀，拼接而成的最终路径，是通过转发的形式跳转的。
 
-![](https://gitee.com/huanyv/imgbed/raw/master/img/img002.png)
+![](img/img002.png)
 
 ### 转发视图
 
@@ -634,6 +634,7 @@ web.xml
 * 获取请求体
 * 没有请求体 会报400错误
 * 只有post请求有请求体
+* `key=value&key=value&key=value&key=value`
 
 ```java
 @RequestMapping("/testRequestBody")
@@ -677,11 +678,19 @@ public String testResponseBody() {
 
 * 一般用`@ResponseBody`注解来输出json数据，前端通过请求拿到数据，渲染页面
 * 导入jackson依赖
+    * 直接使用jackson（在SpringMVC不需要这么做）
+    * `Object o = new ObjectMapper().readValue("json", Class<T> valueType);`JSON字符串转对象
+    * `String json = new ObjectMapper().writeValueAsString(对象);`对象转成JSON字符串
 * 在SpringMVC的核心配置文件中开启mvc的注解驱动，此时在HandlerAdaptor中会自动装配一个消息转换器：MappingJackson2HttpMessageConverter，可以将响应到浏览器的Java对象转换为Json格式的字符串
 * 将对象直接返回
     * 对象-->json对象
     * list集合-->json数组
     * map集合-->json对象
+* `@JsonFormat`出参日期格式化
+    * `@JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")`
+* `@DateTimeFormat`入参日期格式化
+    * `@DateTimeFormat(pattern = "yyyy-MM-dd")`
+    * 这个注解不是jackson的，这个是spring的注解
 
 ```xml
 <dependency>
@@ -894,13 +903,21 @@ public String fileUpload(MultipartFile file,HttpSession session) throws IOExcept
 
 ### 注解
 
+* `@ControllerAdvice`将当前类标识为异常处理的组件
+    * `@RestControllerAdvice`相当于方法都是接口
+* `@ExceptionHandler`标识方法所处理的异常类型
+* 发生异常时会把对应异常对象传进方法
+
 ```java
-@ExceptionHandler(value = ArithmeticException.class)
-public String exception405(Exception errorMsg, Model model) {
-
-    model.addAttribute("errorMsg",errorMsg);
-
-    return "404";
+@ControllerAdvice
+public class ExceptionController {
+    @ExceptionHandler(value = ArithmeticException.class)
+    public String exception405(Exception errorMsg, Model model) {
+    
+        model.addAttribute("errorMsg",errorMsg);
+    
+        return "404";
+    }
 }
 ```
 
@@ -1010,6 +1027,8 @@ public class MvcConfig implements WebMvcConfigurer {
 
 ## SpringMVC执行流程
 
+![](img/20220429112109.png)
+
 ### SpringMVC常用组件
 
 * DispatcherServlet：**前端控制器**，不需要工程师开发，由框架提供
@@ -1029,7 +1048,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
 DispatcherServlet 本质上是一个 Servlet，所以天然的遵循 Servlet 的生命周期。所以宏观上是 Servlet 生命周期来进行调度。
 
-![images](https://gitee.com/huanyv/imgbed/raw/master/img/img005.png)
+![images](img/img005.png)
 
 #### 初始化WebApplicationContext
 
@@ -1423,6 +1442,7 @@ private void processDispatchResult(HttpServletRequest request, HttpServletRespon
 6. 根据返回的ModelAndView（此时会判断是否存在异常：如果存在异常，则执行HandlerExceptionResolver进行异常处理）选择一个适合的ViewResolver进行视图解析，根据Model和View，来渲染视图。
 6. 渲染视图完毕执行拦截器的afterCompletion(…)方法【逆向】。
 6. 将渲染结果返回给客户端。
+
 
 
 

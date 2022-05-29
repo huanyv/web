@@ -6,19 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template</title>
     <!-- 导入 ElementUI 样式 -->
-    <!-- <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" /> -->
+    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
     
     <!-- 导入 Vue 3 -->
     <script src="//unpkg.com/vue@next"></script>
     <!-- axios -->
      <!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <!-- 导入 ElementUI 组件库 -->
-    <!-- <script src="//unpkg.com/element-plus"></script> -->
+    <script src="//unpkg.com/element-plus"></script>
+    <!-- elementplus图标库 -->
+    <script src="//unpkg.com/@element-plus/icons-vue"></script>
 </head>
 <body>
 
     <div id="app">
+        <el-icon><chat-line-round /></el-icon>
         {{ message }}
+        <el-button type="primary">Primary</el-button>
     </div>
 
     <script>
@@ -35,7 +39,14 @@
                 
             },
         })
-        // app.use(ElementPlus); // 使用 ElementPlus
+        
+        // 全局注册图标
+        for ([name, comp] of Object.entries(ElementPlusIconsVue)) {
+            app.component(name, comp);
+        }
+
+        app.use(ElementPlus); // 使用 ElementPlus
+        
         app.mount("#app")
     </script>
 

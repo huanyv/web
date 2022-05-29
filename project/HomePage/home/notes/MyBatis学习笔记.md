@@ -182,11 +182,12 @@ public void test2() throws IOException {
     * objectFactory（对象工厂）
     * plugins（插件）
     * environments（环境配置）
-    * environment（环境变量）
-    * transactionManager（事务管理器）
-    * dataSource（数据源）
+        * environment（环境变量）
+            * transactionManager（事务管理器）
+            * dataSource（数据源）
     * databaseIdProvider（数据库厂商标识）
     * mappers（映射器）
+* 必需按这个顺序来配置标签，否则报错
 
 ### 2.2 properties属性
 
@@ -212,11 +213,7 @@ jdbc.password=123
 * 且看官网：<https://mybatis.org/mybatis-3/zh/configuration.html#settings>
 * `<setting name="jdbcTypeForNull" value="NULL"/>`传空值
 * `<setting name="mapUnderscoreToCamelCase" value="true"/>`开启驼峰命名自动映射,自动去除下划线（默认false）
-* `<setting name="jdbcTypeForNull" value="NULL"/>`传空值
-* `<setting name="jdbcTypeForNull" value="NULL"/>`传空值
-* `<setting name="jdbcTypeForNull" value="NULL"/>`传空值
-* `<setting name="jdbcTypeForNull" value="NULL"/>`传空值
-
+* `<setting name="cacheEnabled" value="true"/>`开启二级缓存
 
 ### 2.4 typeAliases别名处理器
 
@@ -307,10 +304,12 @@ jdbc.password=123
 ### 2.9 映射器（mappers）
 
 * 告诉mybatis去哪里找SQL映射文件
-* `<mappers><mapper></mapper></mappers>`
-* `resource`属性：相对一类路径的资源引用
-* `url`：相对于url的资源引用
-* `name`：包内**所有**的映射器接口全部注册成映射器
+* `<mappers></mappers>`
+* `<mapper></mapper>`
+    * `resource`属性：相对一类路径的资源引用
+    * `url`：相对于url的资源引用
+* `<package></package>`
+    * `name`：包内**所有**的映射器接口全部注册成映射器
     * **此方式必须保证mapper接口和mapper映射文件必须在相同的包下**
 
 ## 3. SQL映射文件
@@ -572,9 +571,9 @@ public interface DeptDao {
 
 * 而对于不支持自增型主键的数据库（例如Oracle），则可以使用`selectKey`子元素：`selectKey`元素将会首先运行，id 会被设置，然后插入语句会被调用
 
-![](https://gitee.com/huanyv/imgbed/raw/master/img/20220219202229.png)
+![](img/20220219202229.png)
 
-![](https://gitee.com/huanyv/imgbed/raw/master/img/20220219203006.png)
+![](img/20220219203006.png)
 
 ### 3.3 参数传递
 
@@ -859,39 +858,52 @@ public interface DeptDao {
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!--
-    targetRuntime: 执行生成的逆向工程的版本
-    MyBatis3Simple: 生成基本的CRUD（清新简洁版）
-    MyBatis3: 生成带条件的CRUD（奢华尊享版）
+        targetRuntime: 执行生成的逆向工程的版本
+        MyBatis3Simple: 生成基本的CRUD（清新简洁版）
+        MyBatis3: 生成带条件的CRUD（奢华尊享版）
     -->
-    <context id="DB2Tables" targetRuntime="MyBatis3">
+    <context id="DB2Tables" targetRuntime="MyBatis3Simple">
+        <commentGenerator>
+            <!-- 去掉注释 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
         <!-- 数据库的连接信息 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/mydb01"
+                        connectionURL="jdbc:mysql://localhost:3306/db_name"
                         userId="root"
                         password="123">
         </jdbcConnection>
+
         <!-- javaBean的生成策略-->
-        <javaModelGenerator targetPackage="com.example.mybatis.pojo"
+        <javaModelGenerator targetPackage="org.example.pojo"
                             targetProject=".\src\main\java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
         <!-- SQL映射文件的生成策略 -->
-        <sqlMapGenerator targetPackage="com.example.mybatis.mapper"
+        <sqlMapGenerator targetPackage="org.example.dao"
                          targetProject=".\src\main\resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!-- Mapper接口的生成策略 -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.example.mybatis.mapper" targetProject=".\src\main\java">
+                             targetPackage="org.example.dao" targetProject=".\src\main\java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!-- 逆向分析的表 -->
         <!-- tableName设置为*号，可以对应所有表，此时不写domainObjectName -->
         <!-- domainObjectName属性指定生成出来的实体类的类名 -->
-        <table tableName="emp" domainObjectName="Emp"/>
-        <table tableName="dept" domainObjectName="Dept"/>
+        <table tableName="sys_user" domainObjectName="SysUser" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="t_orders" domainObjectName="Orders">
+            <!--开启驼峰命名-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
     </context>
+
 </generatorConfiguration>
 ```
 
@@ -913,11 +925,55 @@ public void  test() {
 }
 ```
 
+## 7. 分页插件
+
+### 7.1 准备
+
+* 添加依赖
+
+```xml
+<dependency>
+    <groupId>com.github.pagehelper</groupId>
+    <artifactId>pagehelper</artifactId>
+    <version>5.2.0</version>
+</dependency>
+```
+
+* mybatis全局配置文件添加plugins（插件）
+
+```xml
+<plugins>
+    <!--设置分页插件-->
+    <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+</plugins>
+```
+
+### 7.2 使用方法
+
+* 在查询之前使用`PageHelper.startPage(int pageNum, int pageSize)`
+* 会自动在SQL语句后面加上`LIMIT begin, length`，通过上面的`pageNum`和`pageSize`计算出来的
+    * **SQL语句后不要加`;`**
+* 在查询之后使用`PageInfo<Book> pageInfo = new PageInfo<Book>(bookList,5);`
+* `pageInfo`中会有很分页相关的信息
+    * `pageNum`：当前页的页码
+    * `pageSize`：每页显示的条数
+    * `size`：当前页显示的真实条数
+    * `total`：总记录数
+    * `pages`：总页数
+    * `prePage`：上一页的页码
+    * `nextPage`：下一页的页码
+    * `isFirstPage`/isLastPage：是否为第一页/最后一页
+    * `hasPreviousPage`/hasNextPage：是否存在上一页/下一页
+    * `navigatePages`：导航分页的页码数
+    * `navigatepageNums`：导航分页的页码，[1,2,3,4,5]
 
 
+```java
+PageHelper.startPage(2,4);
+List<Book> bookList = bookService.getAllBook();
+PageInfo<Book> pageInfo = new PageInfo<Book>(bookList,5);
+System.out.println(pageInfo);
+```
 
 
-
-
-
-
+>PageInfo{pageNum=2, pageSize=4, size=4, startRow=5, endRow=8, total=15, pages=4, list=Page{count=true, pageNum=2, pageSize=4, startRow=4, endRow=8, total=15, pages=4, reasonable=false, pageSizeZero=false}[Book{bid=5, bname='史记', author='司马迁', pubcomp='清华大学', pubdate=2022-01-04, bcount=88, price=278.20}, Book{bid=6, bname='资治通鉴', author='司马光', pubcomp='清华大学', pubdate=2022-01-05, bcount=88, price=524.00}, Book{bid=7, bname='Java核心技术 卷I：基础知识', author='Cay S', pubcomp='清华大学', pubdate=2022-01-06, bcount=88, price=92.50}, Book{bid=8, bname='Java核心技术卷II：高级特性', author='Cay S', pubcomp='清华大学', pubdate=2022-01-07, bcount=88, price=111.20}], prePage=1, nextPage=3, isFirstPage=false, isLastPage=false, hasPreviousPage=true, hasNextPage=true, navigatePages=5, navigateFirstPage=1, navigateLastPage=4, navigatepageNums=[1, 2, 3, 4]}

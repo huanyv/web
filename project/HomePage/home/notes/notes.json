@@ -15,8 +15,8 @@
 	"title": "IDEA使用技巧",
 	"date": "2022-01-24"
 },{
-	"url": "./notes/#/JavaScript",
-	"title": "JavaScript",
+	"url": "./notes/#/JavaScript学习笔记",
+	"title": "JavaScript学习笔记",
 	"date": "2022-01-07"
 },{
 	"url": "./notes/#/JavaWeb学习笔记",
@@ -59,8 +59,8 @@
 	"title": "Markdown语法",
 	"date": "2021-07-25"
 },{
-	"url": "./notes/#/Maven",
-	"title": "Maven",
+	"url": "./notes/#/Maven学习笔记",
+	"title": "Maven学习笔记",
 	"date": "2022-01-27"
 },{
 	"url": "./notes/#/MySQL学习笔记",
@@ -102,4 +102,156 @@
 	"url": "./notes/#/MyBatis学习笔记",
 	"title": "MyBatis学习笔记",
 	"date": "2022-02-24"
+},{
+	"url": "./notes/#/SpringSecurity学习笔记",
+	"title": "SpringSecurity学习笔记",
+	"date": "2022-04-25"
+},{
+	"url": "./notes/#/MybaitsPlus学习笔记",
+	"title": "MybaitsPlus学习笔记",
+	"date": "2022-04-25"
+},{
+	"url": "./notes/#/SSM整合",
+	"title": "SSM整合",
+	"date": "2022-04-25"
+},{
+	"url": "./notes/#/SpringBoot2学习笔记",
+	"title": "SpringBoot2学习笔记",
+	"date": "2022-04-25"
+},{
+	"url": "./notes/#/Git常用命令",
+	"title": "Git常用命令",
+	"date": "2022-04-25"
+},{
+	"url": "./notes/#/Redis学习笔记",
+	"title": "Redis学习笔记",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/56 个 JavaScript 实用工具函数",
+	"title": "56 个 JavaScript 实用工具函数",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/POM文件帮助文档",
+	"title": "POM文件帮助文档",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/JavaWeb之如何把前端的数据快速转成实体类",
+	"title": "JavaWeb之如何把前端的数据快速转成实体类",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/设计模式之单例模式",
+	"title": "设计模式之单例模式",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/设计模式之工厂模式",
+	"title": "设计模式之工厂模式",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/vue常用依赖",
+	"title": "vue常用依赖",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/Thymeleaf教程",
+	"title": "Thymeleaf教程",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/前端跨域问题",
+	"title": "前端跨域问题",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/MySQL练习题答案",
+	"title": "MySQL练习题答案",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/Java工具类",
+	"title": "Java工具类",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/MySQL练习题",
+	"title": "MySQL练习题",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/前端请求方式",
+	"title": "前端请求方式",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/设计模式之模板方法模式",
+	"title": "设计模式之模板方法模式",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/如何用SpringSecurity自定义验证码？",
+	"title": "如何用SpringSecurity自定义验证码？",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/axios封装",
+	"title": "axios封装",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/MySQL题",
+	"title": "MySQL题",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/CSS学习笔记",
+	"title": "CSS学习笔记",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/Java函数式编程",
+	"title": "Java函数式编程",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/前后端分离，简单JWT登录实现",
+	"title": "前后端分离，简单JWT登录实现",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/设计模式之代理模式",
+	"title": "设计模式之代理模式",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/Markdwon2HTML",
+	"title": "Markdwon2HTML",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/动画",
+	"title": "动画",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/使用AOP打印日志信息",
+	"title": "使用AOP打印日志信息",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/设计模式之观察者模式",
+	"title": "设计模式之观察者模式",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/SpringSecurity - 前后端分离",
+	"title": "SpringSecurity - 前后端分离",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/设计模式之责任链模式",
+	"title": "设计模式之责任链模式",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/软件设计的七大原则",
+	"title": "软件设计的七大原则",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/登录方案",
+	"title": "登录方案",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/DO、DTO、VO",
+	"title": "DO、DTO、VO",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/使用Markdown来写PPT",
+	"title": "使用Markdown来写PPT",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/七牛云OSS使用方法",
+	"title": "七牛云OSS使用方法",
+	"date": "2022-05-25"
+},{
+	"url": "./notes/#/设计模式之策略模式",
+	"title": "设计模式之策略模式",
+	"date": "2022-05-25"
 }]

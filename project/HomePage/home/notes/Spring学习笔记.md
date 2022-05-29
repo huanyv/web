@@ -9,7 +9,6 @@
 1. 什么是 IOC
     1. 控制反转，把对象创建和对象之间的调用过程，交给 Spring 进行管理
     2. 使用 IOC 目的：为了耦合度降低
-    3. 做入门案例就是 IOC 实现
 2. IOC 底层原理
     1. xml 解析、工厂模式、反射
 1. IOC 思想基于 IOC 容器完成，IOC 容器底层就是对象工厂
@@ -35,11 +34,6 @@
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc</artifactId>
         <version>5.3.15</version>
-    </dependency>
-    <dependency>
-        <groupId>commons-logging</groupId>
-        <artifactId>commons-logging</artifactId>
-        <version>1.2</version>
     </dependency>
     <dependency>
         <groupId>junit</groupId>
@@ -73,7 +67,6 @@ xml文件
 ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
 UserService userService  = app.getBean(UserService.class);
 userService.add();
-
 ```
 
 #### 属性注入
@@ -380,6 +373,8 @@ public class UserDaoImpl implements UserDao {
 * `@Qualifier`根据属性值注入，必须和autowired一起使用
 * `@Resource`如果指定name值根据名称注入，否则根据类型注入
 * `@Value`注入普通类型
+* 属性注入事项：
+    * @Autowired写在变量上和构造器上的区别：<https://blog.csdn.net/kane0409/article/details/78865964>
 
 ```java
 @Service(value = "userService")
@@ -743,7 +738,7 @@ public class UserDaoImpl implements UserDao {
 </bean>
 ```
 
-**开启事务**
+**开启事务注解驱动**
 
 ```xml
 <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
@@ -784,7 +779,7 @@ public class BankCardServiceImpl implements BankCardService {
 * Spring框架的事务传播行为有7种
 * `@Transactional(propagation = Propagation.REQUIRED)`
 
-![](https://gitee.com/huanyv/imgbed/raw/master/img/20220127145154.png)
+![](img/20220127145154.png)
 
 #### 事务的隔离级别
 
@@ -795,7 +790,7 @@ public class BankCardServiceImpl implements BankCardService {
     * 幻读：一个未提交事务读取到另一提交事务添加数据
 * `@Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.READ_COMMITTED)`
 
-![](https://gitee.com/huanyv/imgbed/raw/master/img/20220127145730.png)
+![](img/20220127145730.png)
 
 #### 超时时间
 

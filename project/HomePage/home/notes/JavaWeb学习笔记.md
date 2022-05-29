@@ -1,4 +1,4 @@
-# JavaWeb
+# JavaWeb学习笔记
 
 ## 目录
 
@@ -71,15 +71,26 @@ java.util.logging.ConsoleHandler.encoding = GBK
 </dependencies>
 ```
 
-![](https://gitee.com/huanyv/imgbed/raw/master/img/tomcat-servlet.png)
+![](img/tomcat-servlet.png)
+
 
 ## IDEA创建Web项目（2020）
 
 参考: <https://blog.csdn.net/weixin_43716048/article/details/108639475>
 
+### IDEA工程JSP页面乱码
+
+1. 服务器配置中
+    * 将Vm option改为:`-Dfile.encoding=UTF-8`
+    * 重启服务器，清除浏览器缓存，刷新页面
+2. help ——>Edit Costom VM options-->idea64.exe.vmoptions
+    * 末行加上`-Dfile.encoding=UTF-8`
+3. File-->settings-->Editor-->Console-->DefaultEncoding-->UTF-8
+4. tomcat下的 conf/logging.properties这个文件改回UTF-8
+
 ### JavaEE的三层架构
 
-![JavaEE的三层架构](https://gitee.com/huanyv/imgbed/raw/master/img/javaweb的三层架构.jpg)
+![JavaEE的三层架构](img/javaweb的三层架构.jpg)
 
 ### 一个web项目的目录结构
 
@@ -100,6 +111,8 @@ java.util.logging.ConsoleHandler.encoding = GBK
         * `com.example.pojo/entity/domain/bean`
 * 测试包 `com.example.test/junit`
 * 工具类 `com.example.utils`
+
+![一个web项目的目录结构](img/20220213160113.png)
 
 
 ## Servlet
@@ -309,18 +322,43 @@ public void init(ServletConfig servletConfig) throws ServletException {
 
 ##### 常用方法
 
-1. `getRequestURI()`获取请求的资源路径
-1. `getRequestURL()`获取请求的统一资源定位符（绝对路径）
-1. `getRemoteHost()`获取客户端的 ip 地址
-1. `getHeader()`获取请求头
-1. `getParameter()`获取请求的参数
-1. `getParameterValues()`获取请求的参数（多个值的时候使用）
-1. `getMethod()`获取请求的方式 GET 或 POST
-1. `setAttribute(key, value);`设置域数据
-1. `getAttribute(key);`获取域数据
-1. `getRequestDispatcher()`获取请求转发对象
+* 请求地址相关
+    1. `getRequestURI();`用户请求的URI（客户端相对路径）
+    1. `getRequestURL()`获取请求的统一资源定位符（绝对路径）
+    2. `getPathInfo()` 获取url-patten的相对路径，占位符处路径
+    3. `getPathTranslated()` 返回 URL 中在 servlet 名称之后，在检索字符串之前的路径信息。
+    1. `getServletPath();` 获取Servlet路径，不包含上下文、通配符
+    2. `getQueryString();` get请求的请求参数`key1=value1&key2=value2`
+* 请求参数相关
+    1. `getParameter()`获取请求的参数
+    1. `getParameterValues()`获取请求的参数（多个值的时候使用）
+* 数据相关
+    1. `setAttribute(key, value);`设置域数据
+    1. `getAttribute(key);`获取域数据
+    2. `getHeader()`获取请求头
+* 请求客户端相关
+    1. `getMethod();` GET还是POST
+    1. `getRemoteHost()`获取客户端的 ip 地址
+    1. `getRemoteAddr();` 远程IP，即客户端IP
+    1. `getRemotePort();` 远程端口，即客户端端口
+    1. `getRemoteUser();` 远程用户
+    1. `getScheme();` 协议头，例如http
+* 本机相关
+    1. `getContextPath();` context路径
+    2. `getLocale();` 用户的语言环境
+    1. `getProtocol();` 获取协议类型
+    1. `getLocalAddr();` 获取本地IP，即服务器IP
+    1. `getLocalName();` 获取本地名称，即服务器名称
+    1. `getLocalPort();` 获取本地端口号，即Tomcat端口号
+    2. `getScheme()`获取协议名称
+    2. `getServerName();` 服务器名称
+    1. `getServerPort();` 服务器端口
+* 其它
+    1. `setCharacterEncoding("utf-8");` 设置request编码方式
+    1. `getRequestDispatcher()`获取请求转发对象
+    1. `getRequestedSessionId();` 客户端的Session的ID
 
-##### 请求参数中文乱码乱码
+##### 请求参数中文乱码
 
 ```
 req.setCharacterEncoding("UTF-8");
@@ -410,6 +448,8 @@ resp.setContentType("text/html; charset=UTF-8");
 * 可以写一个BaseServlet来降低代码的冗余。
 * 将多个方法写到同一个servlet，通过子类继承BaseServlet
 * 在html代码中访问servlet需要在地上加方法名称`url?action=方法名`
+* **注意**：`getDeclaredMethod(String name, Class<?>... parameterTypes)`中要使用`.class`，不可使用`对象.getclass()`，因为`HttpServletRequest`和`HttpServletRespons`是两个接口
+    * `.getClass()`是类的字节码对象, 而`.class` 是接口的字节码对象, 两者不相等
 
 ```java
 public abstract class BaseServlet extends HttpServlet {
@@ -632,7 +672,7 @@ public class SimpleServlet extends HttpServlet
 * 域对象是可以像 Map 一样存取数据的对象。四个域对象功能一样。不同的是它们对数据的存取范围。
 * 虽然四个域对象都可以存取数据。在使用上它们是有优先顺序的
 * 四个域在使用的时候，优先顺序分别是，他们从小到大的范围的顺序。    
-  
+    
 
 ### out 输出和 response.getWriter 输出的区别
 
@@ -1022,10 +1062,10 @@ FUNCTIONS 标签库
 
 ```
 <table border="1" cellpadding="0" cellspacing="0">
-    <c:forEach begin="1" end="9" varStatus="s" var="i">
+    <c:forEach begin="1" end="9" var="i">
         <tr>
-            <c:forEach begin="1" end="${ s.index }" var="j">
-                <td>${ i } * ${ j } = ${i*j}</td>
+            <c:forEach begin="1" end="${ i }" var="j">
+                <td>&nbsp;${ i } * ${ j } = ${i*j}&nbsp;</td>
             </c:forEach>
         </tr>
     </c:forEach>
@@ -1277,7 +1317,7 @@ session.invalidate();//立即失效
 1. Filter过滤器它是JavaWeb的三大组件之一。三大组件分别是：Servlet程序、Listener监听器、Filter过滤器
 2. Filter过滤器它是 JavaEE 的规范。也就是接口
 3. Filter过滤器它的作用是：拦截请求，过滤响应。
-   拦截请求常见的应用场景有：
+拦截请求常见的应用场景有：
     1. 权限检查
     2. 日记操作
     3. 事务管理……等等
@@ -1350,7 +1390,7 @@ public void init(FilterConfig filterConfig) throws ServletException {
 
 ### FilterChain过滤器链
 
-![Filter的过滤器链](https://gitee.com/huanyv/imgbed/raw/master/img/20220213161921.png)
+![Filter的过滤器链](img/20220213161921.png)
 
 ### Filter的拦截路径
 
@@ -1412,6 +1452,7 @@ Filter 过滤器它只关心请求的地址是否匹配，不关心请求的资�
     * `List<Person> ps = gson.fromJson(jsonListString, new TypeToken<List<Person>>() {}.getType());`
 * 把JSON字符串转成Map集合
     * `Map<String, Person> map = gson.fromJson(jsonMapString,new TypeToken<HashMap<String, Person>>() {}.getType());`
+
 
 
 
