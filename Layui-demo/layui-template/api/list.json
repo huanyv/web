@@ -1,0 +1,97 @@
+{
+    "code": 0,
+    "msg": "",
+    "count": 15,
+    "data": [
+        {
+            "id": 1,
+            "bname": "Java从入门到放弃",
+            "author": "张三",
+            "pubcomp": "清华大学",
+            "pubdate": "2022-02-28",
+            "bcount": 110,
+            "price": 77.60
+        },
+        {
+            "id": 2,
+            "bname": "西游记",
+            "author": "吴承恩",
+            "pubcomp": "清华大学",
+            "pubdate": "2022-02-28",
+            "bcount": 88,
+            "price": 30.68
+        },
+        {
+            "id": 3,
+            "bname": "儒林外史",
+            "author": "吴敬梓",
+            "pubcomp": "清华大学",
+            "pubdate": "2022-01-02",
+            "bcount": 88,
+            "price": 18.80
+        },
+        {
+            "id": 4,
+            "bname": "聊斋志异",
+            "author": "蒲松龄",
+            "pubcomp": "清华大学",
+            "pubdate": "2022-01-03",
+            "bcount": 88,
+            "price": 21.00
+        },
+        {
+            "id": 5,
+            "bname": "史记",
+            "author": "司马迁",
+            "pubcomp": "清华大学",
+            "pubdate": "2022-01-04",
+            "bcount": 88,
+            "price": 278.25
+        },
+        {
+            "id": 6,
+            "bname": "资治通鉴",
+            "author": "司马光",
+            "pubcomp": "清华大学",
+            "pubdate": "2022-01-05",
+            "bcount": 89,
+            "price": 524.00
+        },
+        {
+            "id": 7,
+            "bname": "Java核心技术 卷I：基础知识",
+            "author": "Cay S",
+            "pubcomp": "机械工业出版社",
+            "pubdate": "2022-01-06",
+            "bcount": 88,
+            "price": 92.50
+        },
+        {
+            "id": 8,
+            "bname": "Java核心技术卷II：高级特性",
+            "author": "Cay S",
+            "pubcomp": "机械工业出版社",
+            "pubdate": "2022-01-07",
+            "bcount": 88,
+            "price": 111.20
+        },
+        {
+            "id": 9,
+            "bname": "Java多线程编程核心技术",
+            "author": "高洪岩",
+            "pubcomp": "清华大学",
+            "pubdate": "2022-01-08",
+            "bcount": 88,
+            "price": 47.50
+        },
+        {
+            "id": 10,
+            "bname": "诗经",
+            "author": "孔子",
+            "pubcomp": "清华大学",
+            "pubdate": "2022-01-09",
+            "bcount": 88,
+            "price": 33.00
+        }
+    ]
+}
