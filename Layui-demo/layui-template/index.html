@@ -121,7 +121,7 @@
     </script>
 
     <!--项目的上下文根路径，通过服务端渲染-->
-    <span id="ctxPath" style="display: none">[[${#request.contextPath}]]</span>
+    <!--<span id="ctxPath" style="display: none">[[${#request.contextPath}]]</span>-->
 
     <!-- js 依赖 layui js 与jquery js -->
     <script src="/jquery/jquery-3.6.0.js"></script>
@@ -136,7 +136,7 @@
             var laydate = layui.laydate;
             var form = layui.form;
 
-            var baseUrl = $("#ctxPath").text();
+            //var baseUrl = $("#ctxPath").text();
 
             //执行一个laydate实例
             laydate.render({

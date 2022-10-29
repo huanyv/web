@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>fetch</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        var url = "http://www.nmc.cn/rest/weather?stationid=54616&_=1646997794950";
-        // GET请求
-        fetch(url).then((response) => {
-            // console.log(response.json());
-            return response.json();
-        }).then((data) => {
-            console.log(data);
-        })
+    //   var url =
+    //     "http://www.nmc.cn/rest/weather?stationid=54616&_=1646997794950";
+    //   // GET请求
+    //   fetch(url)
+    //     .then((response) => {
+    //       // console.log(response.json());
+    //       return response.json();
+    //     })
+    //     .then((data) => {
+    //       console.log(data);
+    //     });
 
-        fetch('http://www.nmc.cn/rest/weather', {
-            method: 'POST',
-            body: JSON.stringify({ stationid: "54616", _: "1646997794950" }),
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8;'
-            }
-        }).then(response => response.json())
-        .then((data) => {
-            console.log(data);
-        })
+    //   fetch("http://www.nmc.cn/rest/weather", {
+    //     method: "POST",
+    //     body: JSON.stringify({ stationid: "54616", _: "1646997794950" }),
+    //     headers: {
+    //       "Content-Type": "application/json;charset=utf-8;",
+    //     },
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //     });
 
+      fetch("http://localhost:8080/Servlet06/hello", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "username=admin"
+      }).then((response) => {
+          return response.text(); // res.text()是一个Promise对象
+        }).then((response) => {
+          console.log("data", response); //返回的数据
+        });
+
+      fetch("http://localhost:8080/Servlet06/hello?username=admin", {
+        method: "GET",
+      }).then((response) => {
+          return response.text(); // res.text()是一个Promise对象
+        }).then((response) => {
+          console.log("data", response); //返回的数据
+        });
     </script>
-</body>
-
+  </body>
 </html>
