@@ -132,25 +132,25 @@ ul {
 }
 
 
-#list>li{
+.list>li{
     height: 25px;
 }
-#list a{
+.list a{
     color: rgba(238, 238, 238,0.8);
     line-height: 20px;
 }
-#list a:hover{
+.list a:hover{
     text-decoration: none;
     color: aliceblue;
     font-size: 20px;
     line-height: 20px;
 }
 /*文章列表的日期*/
-#list span{
+.list span{
     color: darkgrey;
     font-size: 12px;
 }
-#list {
+.list {
     list-style: none;
     position: absolute;
     left: 0;
@@ -162,7 +162,7 @@ ul {
     position: absolute;
     width: 260px;
 }
-#list,#next,#last {
+.list,#next,#last {
     height: 250px;
     top: 150px;
 }
