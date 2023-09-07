@@ -1,0 +1,64 @@
+{
+    "code": 0,
+    "message": 0,
+    "data": {
+        "answerTopic": {
+            "id": "b2122d68-7926-4b77-83ec-bc465db765fb",
+            "topicName": "网络安全知识",
+            "isPublish": 1,
+            "textPublishText": "安全",
+            "sort": 0,
+            "createTime": "2023-08-24 05:56:11",
+            "createTimeStr": "",
+            "modifyTime": "2023-08-24 05:56:11",
+            "delFlag": 0,
+            "createUserName": "",
+            "createUserId": "",
+            "publishTime": "2023-08-24 05:56:11"
+        },
+        "answerQuestion": {
+            "id": "4538e960-21ce-48d5-acc6-1588cf80d301",
+            "topicId": "b2122d68-7926-4b77-83ec-bc465db765fb",
+            "content": "以下关于“隐私政策”的说法，不正确的是？",
+            "type": 2,
+            "createTime": "2023-08-24 05:56:11",
+            "modifyTime": "2023-08-24T05:56:11.637+00:00",
+            "delFlag": 0,
+            "createUserName": "xuying",
+            "createUserId": "sjdakdasda",
+            "sort": 0,
+            "priority": 0
+        },
+        "answerOptionList": [
+            {
+                "id": "ba91fd3d-9c19-4c11-9d99-ddb3fb9d8df6",
+                "content": "App实际的个人信息处理行为可以超出隐私政策所述范围",
+                "questionId": "4538e960-21ce-48d5-acc6-1588cf80d301",
+                "correctOption": 0,
+                "sort": 0
+                
+            },
+            {
+                "id": "c6feabbe-8eb6-4f30-b2e2-9df618e5ff35",
+                "content": " App实际的个人信息处理行为应与“隐私政策”等公开的收集使用规则一致",
+                "questionId": "4538e960-21ce-48d5-acc6-1588cf80d301",
+                "correctOption": 1,
+                "sort": 0
+            },
+            {
+                "id": "d118a5c2-62e7-4b8a-af77-ef648835c6d8",
+                "content": "点击同意“隐私政策”，并不意味着个人信息都会被收集，很多都需用户在具体的业务场景下进行再次授权。",
+                "questionId": "4538e960-21ce-48d5-acc6-1588cf80d301",
+                "correctOption": 1,
+                "sort": 0
+            },
+            {
+                "id": "d118a5c2-62e7-4b8a-af77-ef648835c111",
+                "content": "完善的隐私政策通常包含收集使用个人信息的目的、方式、范围，与第三方共享个人信息情况。",
+                "questionId": "4538e960-21ce-48d5-acc6-1588cf80d301",
+                "correctOption": 1,
+                "sort": 0
+            }
+        ]
+    }
+}

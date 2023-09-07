@@ -134,7 +134,11 @@
             document.getElementById("input").onkeydown = function(key) {
                 if(key.keyCode == 13) { // 回车按下
                     var word = document.getElementById("input").value; //获取输入关键词
-                    window.open(se[index].url + word,"_self"); // 跳转链接
+                    if (se[index].title == 'Baidu') {
+                        window.open(se[index].url + word + " -site:csdn.net -site:wenku.baidu.com","_self"); // 跳转链接
+                    } else {
+                        window.open(se[index].url + word,"_self"); // 跳转链接
+                    }
                 }
             }
             document.getElementById("searchBtn").onclick = function() {

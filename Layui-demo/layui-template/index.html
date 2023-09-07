@@ -216,7 +216,7 @@
                         $("#formMethod").attr("name","");
                         $("#formMethod").attr("value","");
                         $("#addAndUpdateForm")[0].reset() // 表单数据清空
-                        url = baseUrl + "/admin/book/addBook"
+                        url = "/admin/book/addBook"
                     }
                 });
             }
@@ -232,7 +232,7 @@
                         $("#formMethod").attr("name","_method");
                         $("#formMethod").attr("value","PUT");
                         form.val("addAndUpdateForm",data) // 表单回显
-                        url = baseUrl + "/admin/book/updateBook"
+                        url = "/admin/book/updateBook"
                     }
                 });
             }

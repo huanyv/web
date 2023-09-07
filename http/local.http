@@ -1,0 +1,11 @@
+
+@ip=127.0.0.1
+@port=8080
+
+GET {{ip}}:{{port}}/hello
+
+
+POST {{ip}}:{{port}}/test
+Content-Type: application/x-www-url-encoded
+
+a1=1&a2=2
