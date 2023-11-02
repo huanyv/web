@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./github-markdown-light.min.css">
+    <link rel="stylesheet" href="./i5ting/css/zTreeStyle/zTreeStyle.css">
+</head>
+
+<body>
+    <script src="./i5ting/js/jquery-1.4.4.min.js"></script>
+    <script src="./i5ting/js/jquery.ztree.core-3.5.min.js"></script>
+    <script src="./i5ting/dist/ztree_toc.min.js"></script>
+    <script src="./marked.min.js"></script>
+    <div>
+        <div style="width:30%;">
+            <ul id="tree" class="ztree"
+                style="width: 260px; overflow: auto; position: fixed; z-index: 2147483647; border: 0px none; left: 0px; bottom: 0px;">
+            </ul>
+        </div>
+        <div id="readme" style="width:70%;margin-left:25%;">
+            <article class="markdown-body">
+            <h2>正在加载......</h2>
+            </article>
+        </div>
+    </div>
+    <script type="text/javascript">
+        fetch("./data/Java学习笔记.md").then(res => res.text()).then(data => {
+            document.querySelector('.markdown-body').innerHTML = marked.parse(data);
+            $(document).ready(function () {
+                $('#tree').ztree_toc({
+                    is_auto_number: false,
+                    documment_selector: '.markdown-body',
+                    is_expand_all: true
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

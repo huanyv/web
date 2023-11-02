@@ -4,6 +4,7 @@
 
 # Site
 title: 幻雨
+avatar: './img/head.jpg'
 subtitle: ''
 description: ''
 keywords:
@@ -97,7 +98,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: coder
+theme: stellar
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
