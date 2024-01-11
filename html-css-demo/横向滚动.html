@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            overflow-x: scroll;
+        }
+
+        #box {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            width: 3000px;
+            align-content: center;
+        }
+
+        .item {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* #box {
+            animation: scroll 20s linear infinite;
+        }
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+
+            /* 根据需求调整滚动位移值 */
+        } */
+
+        /* 隐藏但能滚动,不支持IE11 */
+        /* #container::-webkit-scrollbar {
+            display: none;
+        } */
+    </style>
+</head>
+
+<body>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div id="container">
+        <div id="box">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+            <div class="item">4</div>
+        </div>
+    </div>
+
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    <div>12313131</div>
+    123131313123131313
+
+    <script>
+        var container = document.getElementById("container");
+
+        // 自动隐藏滚动条
+        container.addEventListener("mouseover", function () {
+            container.style.overflow = "scroll";
+        });
+
+        container.addEventListener("mouseout", function () {
+            container.style.overflow = "hidden";
+        });
+
+        // 鼠标控制横向滚动
+        container.addEventListener('wheel', function (event) {
+            event.preventDefault();
+            container.scrollLeft += (event.deltaY < 0 ? -30 : 30);
+        });
+
+    </script>
+</body>
+
+</html>
