@@ -8,6 +8,8 @@
     <style>
         #container {
             overflow-x: scroll;
+            overflow-y:hidden;
+            height: 120px;
         }
 
         #box {
@@ -138,11 +140,11 @@
 
         // 自动隐藏滚动条
         container.addEventListener("mouseover", function () {
-            container.style.overflow = "scroll";
+            container.style.overflowX = "scroll";
         });
 
         container.addEventListener("mouseout", function () {
-            container.style.overflow = "hidden";
+            container.style.overflowX = "hidden";
         });
 
         // 鼠标控制横向滚动
