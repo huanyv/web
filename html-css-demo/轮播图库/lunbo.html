@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./files/slick.css">
+    <!-- <link rel="stylesheet" href="./files/slick-theme.css"> -->
+    <style>
+        body {
+            background-color: cornflowerblue;
+        }
+
+        #bottom-flow {
+            background-color: antiquewhite;
+            width: 1200px;
+            margin: auto;
+        }
+
+        #bottom-flow2 {
+            background-color: antiquewhite;
+            width: 580px;
+            margin: auto;
+        }
+
+        .item {
+            margin: 0 10px 0 10px;
+            background-color: aqua;
+            text-align: center;
+            height: 200px;
+        }
+
+        .flowBtn {
+            position: absolute;
+            top: 50%;
+            background-color: rgba(0, 0, 0, .2);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            padding: 5px;
+            z-index: 10;
+        }
+
+
+        .slick-dotted.slick-slider {
+            margin-bottom: 30px;
+        }
+
+        .slick-dots {
+            position: absolute;
+            bottom: 10px;
+            display: block;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        .slick-dots li {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 5px;
+            padding: 0;
+            cursor: pointer;
+            background-color: rgba(255,255,255,.5);
+            border-radius: 50%;
+        }
+
+        .slick-dots li button {
+            font-size: 0;
+            line-height: 0;
+
+            display: block;
+
+            width: 20px;
+            height: 20px;
+            padding: 5px;
+
+            cursor: pointer;
+
+            color: transparent;
+            border: 0;
+            outline: none;
+            background: transparent;
+        }
+
+        .slick-dots li button:hover,
+        .slick-dots li button:focus {
+            outline: none;
+        }
+
+        .slick-dots li button:hover:before,
+        .slick-dots li button:focus:before {
+            opacity: 1;
+        }
+
+        .slick-dots li button:before {
+            font-family: 'slick';
+            font-size: 6px;
+            line-height: 20px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 20px;
+            height: 20px;
+
+            content: '';
+            text-align: center;
+
+            opacity: .25;
+            color: black;
+
+            background-color: white;
+            border-radius: 50%;
+
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .slick-dots li.slick-active button:before {
+            opacity: .75;
+            /* color: black; */
+        }
+    </style>
+</head>
+
+<body>
+    <script src="./files/jquery-3.1.1.js"></script>
+    <script src="./files/slick.js"></script>
+    <div id="bottom-flow">
+        <div class="item">
+            <h3>1</h3>
+        </div>
+        <div class="item">
+            <h3>2</h3>
+        </div>
+        <div class="item">
+            <h3>3</h3>
+        </div>
+        <div class="item">
+            <h3>4</h3>
+        </div>
+        <div class="item">
+            <h3>5</h3>
+        </div>
+        <div class="item">
+            <h3>6</h3>
+        </div>
+    </div>
+    <div style="height: 20px;"></div>
+    <div id="bottom-flow2">
+        <div class="item">
+            <h3>1</h3>
+        </div>
+        <div class="item">
+            <h3>2</h3>
+        </div>
+        <div class="item">
+            <h3>3</h3>
+        </div>
+        <div class="item">
+            <h3>4</h3>
+        </div>
+        <div class="item">
+            <h3>5</h3>
+        </div>
+        <div class="item">
+            <h3>6</h3>
+        </div>
+    </div>
+    <script>
+        $("#bottom-flow").slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: false
+        })
+
+        $("#bottom-flow2").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            nextArrow: '<div class="flowBtn" style="right:10px"><img src="./files/next.png" width=30px /></button>',
+            prevArrow: '<div class="flowBtn" style="left:10px"><img src="./files/pre.png" width=30px /></button>',
+            dots: true
+        })
+
+
+    </script>
+</body>
+
+</html>
