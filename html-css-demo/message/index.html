@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">通知</button>
+    <script src="./coco-message.min.js"></script>
+    <script>
+        cocoMessage.config({       //全局配置
+            duration: 10000,         //消息显示时长
+        });
+        document.querySelector("#btn").addEventListener("click", () => {
+            cocoMessage.info("消息通知", 2000, function() {
+                cocoMessage.warning("close");
+            })
+        })
+    </script>
+</body>
+</html>
