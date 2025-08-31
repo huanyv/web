@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./files/slick.css">
-    <!-- <link rel="stylesheet" href="./files/slick-theme.css"> -->
+    <link rel="stylesheet" href="./files/slick-theme.css">
     <style>
         body {
             background-color: cornflowerblue;
@@ -41,92 +41,10 @@
             transform: translateY(-50%);
             padding: 5px;
             z-index: 10;
-        }
-
-
-        .slick-dotted.slick-slider {
-            margin-bottom: 30px;
-        }
-
-        .slick-dots {
-            position: absolute;
-            bottom: 10px;
-            display: block;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            text-align: center;
-        }
-
-        .slick-dots li {
-            position: relative;
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            margin: 0 5px;
-            padding: 0;
+        } 
+        .flowBtn:hover {
+            background-color: rgba(0, 0, 0, .4);
             cursor: pointer;
-            background-color: rgba(255,255,255,.5);
-            border-radius: 50%;
-        }
-
-        .slick-dots li button {
-            font-size: 0;
-            line-height: 0;
-
-            display: block;
-
-            width: 20px;
-            height: 20px;
-            padding: 5px;
-
-            cursor: pointer;
-
-            color: transparent;
-            border: 0;
-            outline: none;
-            background: transparent;
-        }
-
-        .slick-dots li button:hover,
-        .slick-dots li button:focus {
-            outline: none;
-        }
-
-        .slick-dots li button:hover:before,
-        .slick-dots li button:focus:before {
-            opacity: 1;
-        }
-
-        .slick-dots li button:before {
-            font-family: 'slick';
-            font-size: 6px;
-            line-height: 20px;
-
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            width: 20px;
-            height: 20px;
-
-            content: '';
-            text-align: center;
-
-            opacity: .25;
-            color: black;
-
-            background-color: white;
-            border-radius: 50%;
-
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .slick-dots li.slick-active button:before {
-            opacity: .75;
-            /* color: black; */
         }
     </style>
 </head>
@@ -193,8 +111,6 @@
             prevArrow: '<div class="flowBtn" style="left:10px"><img src="./files/pre.png" width=30px /></button>',
             dots: true
         })
-
-
     </script>
 </body>
 
