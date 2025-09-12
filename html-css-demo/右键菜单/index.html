@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>右键菜单案例</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 650px;
+            overflow-y: scroll;
+            border: 1px solid #3a8df5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;padding: 12px;">自定义右键菜单，请右键查看菜单效果</h1>
+        <h2>寒江孤影，江湖故人，相逢何必曾相识</h2>
+        <h2>寒江孤影，江湖故人，相逢何必曾相识</h2>
+        <h2>寒江孤影，江湖故人，相逢何必曾相识</h2>
+        <h2>寒江孤影，江湖故人，相逢何必曾相识</h2>
+        <h2>寒江孤影，江湖故人，相逢何必曾相识</h2>
+        <h2>寒江孤影，江湖故人，相逢何必曾相识</h2>
+        <h2>寒江孤影，江湖故人，相逢何必曾相识</h2>
+    </div>
+    <script src="./js/ctxmenu.js"></script>
+    <script>
+
+        let menu = [
+            { title: '打开', action: 'open' },
+            { title: '下载', action: 'download' },
+            { title: '外链分享', action: 'share' },
+            { title: '复制', action: 'copy' },
+            { title: '重命名', action: 'rename' },
+            { title: '刷新', action: 'refresh' },
+            { title: '删除', action: 'delete' },
+            {
+                title: '新建',
+                children: [
+                    { title: '新建doc', action: 'new-doc' },
+                    { title: '新建ppt', action: 'new-ppt' },
+                    { title: '新建excel', action: 'new-excel' },
+                    { title: '新建txt', action: 'new-txt' },
+                ]
+            },
+            {
+                title: '更多',
+                children: [
+                    { title: '添加到收藏夹', action: 'collect' },
+                    { title: '编辑锁定', action: 'locked' },
+                    { title: '置顶', action: 'sticky' },
+                    { title: '文件历史记录', action: 'history-record' },
+                ]
+            },
+            {
+                title: '属性',
+                children: [
+                    { title: '属性1', action: 'collect' },
+                    { title: '属性2' },
+                    { title: '属性3' },
+                    { title: '属性4' },
+                ]
+            },
+        ]
+
+        const contextMenus = new ContextMenus({
+            className: '.container',
+            menu
+        })
+        console.log(contextMenus);
+        contextMenus.on((item, evt, source) => {
+            console.log(item, evt, source);
+            console.log(source.target);
+        })
+    </script>
+</body>
+
+</html>
